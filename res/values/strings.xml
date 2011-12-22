@@ -3783,6 +3783,15 @@ found in the list of installed apps.</string>
     <string name="additional_system_update_settings_list_item_title">Additional system updates</string>
 
     <!-- RootzBoat Settings title -->
-    <string name="rootz_settings_title">RootzBoat Settings</string>
+    <string name="rootz_settings_title">RootzBoat settings</string>
+
+    <!-- Category names for RootzBoat Settings -->
+    <string name="launcher_settings_title">Launcher settings</string>
+    <string name="lockscreen_settings_title">Lockscreen settings</string>
+    <string name="navigationbar_settings_title">NavigationBar settings</string>
+    <string name="statusbar_settings_title">StatusBar settings</string>
+
+    <!-- Preference names for RootzBoat Settings -->
+    <string name="coming_soon_title">Coming soon</string>
 
 </resources>
