@@ -14,5 +14,10 @@
                 android:targetClass="com.android.launcher2.SettingsActivity" />
         </PreferenceScreen>
 
+        <PreferenceScreen
+            android:fragment="com.android.settings.StatusBarSettings"
+            android:title="@string/status_bar_prefs_title" >
+        </PreferenceScreen>
+
 </PreferenceScreen>
             
