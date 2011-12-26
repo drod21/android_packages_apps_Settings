@@ -19,5 +19,10 @@
             android:title="@string/status_bar_prefs_title" >
         </PreferenceScreen>
 
+        <PreferenceScreen
+            android:fragment="com.android.settings.NavigationBarSettings"
+            android:title="@string/navigation_bar_prefs_title" >
+        </PreferenceScreen>
+
 </PreferenceScreen>
             

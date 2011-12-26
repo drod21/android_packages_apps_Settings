@@ -3791,8 +3791,11 @@ found in the list of installed apps.</string>
     <!-- Category names for RootzBoat Settings -->
     <string name="launcher_prefs_title">Launcher settings</string>
     <string name="status_bar_prefs_title">Status bar settings</string>
+    <string name="navigation_bar_prefs_title">Navigation bar settings</string>
 
     <!-- Strings for RootzBoat settings -->
     <string name="battery_percent_title">Show battery percentages</string>
+
+    <string name="persist_menu_title">Always show menu button</string>
 
 </resources>
