@@ -11,7 +11,7 @@
             <intent
                 android:action="android.intent.action.MAIN"
                 android:targetPackage="com.android.launcher"
-                android:targetClass="com.android.launcher2.SettingsActivity" />
+                android:targetClass="com.android.launcher2.Preferences" />
         </PreferenceScreen>
 
         <PreferenceScreen
