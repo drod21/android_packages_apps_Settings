@@ -34,10 +34,7 @@
     <!-- Settings main menu category heading. System (Updates, data, accessibility, about phone). [CHAR LIMIT=40] -->
     <string name="header_category_system">SYSTEM</string>
     <!-- Advanced Settings menu for RootzBoat -->
-    <string name="header_category_advanced_settings">ADVANCED SETTINGS</string>
-
-    <!-- Settings main menu category heading. Anderson (Anderson settings). [CHAR LIMIT=40] -->
-    <string name="header_category_anderson">ANDERSON OPTIONS</string>
+    <string name="header_category_advanced_settings">CAPTAIN\'S QUARTERS</string>
 
     <!-- Phone info -->
     <!-- Phone Info screen. Button label to turn on the radio . Only shown in diagnostic screen, so precise translation is not needed. -->
@@ -3783,9 +3780,21 @@ found in the list of installed apps.</string>
     <!-- Representation of a numerical percentage. [CHAR LIMIT=8] -->
     <string name="percentage"><xliff:g id="number" example="30">%d</xliff:g>%%</string>
    
-    <!-- Anderson settings screen heading -->
-    <string name="anderson_notification_settings">Notification Settings</string>
-    <!-- Anderson notification settings - pulse notifications -->
+    <!-- A menu item in "About phone" that allows the user to update the phone with settings
+    from their cell phone carrier. The use of the string is similar to the string
+    "system_update_settings_list_item_title" in this project. [CHAR LIMIT=25] -->
+    <string name="additional_system_update_settings_list_item_title">Additional system updates</string>
+
+    <!-- RootzBoat Settings title -->
+    <string name="rootz_settings_title">RootzBoat</string>
+
+    <!-- Category names for RootzBoat Settings -->
+    <string name="launcher_prefs_title">Launcher</string>
+    <string name="status_bar_prefs_title">Status Bar</string>
+    <string name="navigation_bar_prefs_title">Navigation Bar</string>
+    <string name="notification_pulse_settings">Pulse Notifications</string>
+
+    <!-- pulse notifications -->
     <string name="notification_category_pulse_title">Pulse Notification</string>
     <!-- Pulse notificaton light color -->
     <string name="pulse_color_title">Pulse Color</string>
@@ -3793,19 +3802,6 @@ found in the list of installed apps.</string>
     <string name="pulse_duration_title">Pulse Duration</string>
     <!-- Pulse notificaton light color -->
     <string name="pulse_frequency_title">Pulse Frequency</string>
-
-    <!-- A menu item in "About phone" that allows the user to update the phone with settings
-    from their cell phone carrier. The use of the string is similar to the string
-    "system_update_settings_list_item_title" in this project. [CHAR LIMIT=25] -->
-    <string name="additional_system_update_settings_list_item_title">Additional system updates</string>
-
-    <!-- RootzBoat Settings title -->
-    <string name="rootz_settings_title">RootzBoat settings</string>
-
-    <!-- Category names for RootzBoat Settings -->
-    <string name="launcher_prefs_title">Launcher settings</string>
-    <string name="status_bar_prefs_title">Status bar settings</string>
-    <string name="navigation_bar_prefs_title">Navigation bar settings</string>
 
     <!-- Strings for RootzBoat settings -->
     <string name="battery_percent_title">Show battery percentages</string>
