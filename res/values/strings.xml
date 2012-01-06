@@ -3805,7 +3805,7 @@ found in the list of installed apps.</string>
     <string name="clock_style_title">Clock style</string>
     <string name="am_pm_style_title">AM PM style</string>
 
-    <string name="persist_menu_title">Always show menu button</string>
+    <string name="show_menu_button_title">Show menu button in nav bar</string>
     <string name="show_search_button_title">Show search button in nav bar</string>
 
     <string name="cpu_settings_title">CPU settings</string>
