@@ -5,8 +5,8 @@
     android:key="navigation_bar_prefs">
 
         <CheckBoxPreference
-            android:key="persist_menu"
-            android:title="@string/persist_menu_title" >
+            android:key="show_menu_button"
+            android:title="@string/show_menu_button_title" >
         </CheckBoxPreference>
 
         <CheckBoxPreference

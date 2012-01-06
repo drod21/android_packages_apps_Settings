@@ -11,9 +11,9 @@ import android.provider.Settings;
 
 public class NavigationBarSettings extends SettingsPreferenceFragment implements OnPreferenceChangeListener {
 
-    private static final String PERSIST_MENU = "persist_menu";
+    private static final String SHOW_MENU_BUTTON = "show_menu_button";
     private static final String SHOW_SEARCH_BUTTON = "show_search_button";
-    private CheckBoxPreference mPersistMenu;
+    private CheckBoxPreference mShowMenuButton;
     private CheckBoxPreference mShowSearchButton;
 
     @Override
@@ -22,9 +22,9 @@ public class NavigationBarSettings extends SettingsPreferenceFragment implements
         addPreferencesFromResource(R.xml.navigation_bar_settings);
         PreferenceScreen prefSet = getPreferenceScreen();
 
-        mPersistMenu = (CheckBoxPreference) prefSet.findPreference(PERSIST_MENU);
-        mPersistMenu.setChecked(Settings.System.getInt(getContentResolver(),
-            Settings.System.PERSIST_MENU, 0) == 1);
+        mShowMenuButton = (CheckBoxPreference) prefSet.findPreference(SHOW_MENU_BUTTON);
+        mShowMenuButton.setChecked(Settings.System.getInt(getContentResolver(),
+            Settings.System.SHOW_MENU_BUTTON, 0) == 1);
 
         mShowSearchButton = (CheckBoxPreference) prefSet.findPreference(SHOW_SEARCH_BUTTON);
         mShowSearchButton.setChecked(Settings.System.getInt(getContentResolver(),
@@ -33,10 +33,10 @@ public class NavigationBarSettings extends SettingsPreferenceFragment implements
 
     public boolean onPreferenceTreeClick(PreferenceScreen preferenceScreen, Preference preference) {
         boolean value;
-        if (preference == mPersistMenu) {
-            value = mPersistMenu.isChecked();
+        if (preference == mShowMenuButton) {
+            value = mShowMenuButton.isChecked();
             Settings.System.putInt(getContentResolver(),
-                Settings.System.PERSIST_MENU, value ? 1 : 0);
+                Settings.System.SHOW_MENU_BUTTON, value ? 1 : 0);
             return true;
         } else if (preference == mShowSearchButton) {
             value = mShowSearchButton.isChecked();
