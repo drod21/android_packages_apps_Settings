@@ -146,6 +146,7 @@
     </string-array>
     
     <string-array name="entries_font_size">
+        <item>Tiny</item>
         <item msgid="6490061470416867723">Small</item>
         <item msgid="3579015730662088893">Normal</item>
         <item msgid="1678068858001018666">Large</item>
@@ -153,7 +154,8 @@
     </string-array>
 
     <string-array name="entryvalues_font_size" translatable="false">
-        <item>0.85</item>
+    	<item>0.70</item>
+    	<item>0.85</item>
         <item>1.0</item>
         <item>1.15</item>
         <item>1.30</item>
@@ -605,10 +607,16 @@
     <!-- Titles for window animation scale preference. [CHAR LIMIT=35] -->
     <string-array name="window_animation_scale_entries">
         <item>Animation off</item>
+        <item>Animation scale .25x</item>
         <item>Animation scale .5x</item>
+        <item>Animation scale .75x</item>
         <item>Animation scale 1x</item>
+        <item>Animation scale 1.25x</item>
         <item>Animation scale 1.5x</item>
+        <item>Animation scale 1.75x</item>
         <item>Animation scale 2x</item>
+        <item>Animation scale 2.25x</item>
+        <item>Animation scale 2.5x</item>
         <item>Animation scale 5x</item>
         <item>Animation scale 10x</item>
     </string-array>
@@ -616,21 +624,33 @@
     <!-- Values for window animation scale preference. -->
     <string-array name="window_animation_scale_values" translatable="false" >
         <item>0</item>
+        <item>.25</item>
         <item>.5</item>
+        <item>.75</item>
         <item>1</item>
+        <item>1.25</item>
         <item>1.5</item>
+        <item>1.75</item>
         <item>2</item>
+        <item>2.25</item>
+        <item>2.5</item>
         <item>5</item>
         <item>10</item>
     </string-array>
-
+    
     <!-- Titles for transition animation scale preference. [CHAR LIMIT=35] -->
     <string-array name="transition_animation_scale_entries">
         <item>Animation off</item>
+        <item>Animation scale .25x</item>
         <item>Animation scale .5x</item>
+        <item>Animation scale .75x</item>
         <item>Animation scale 1x</item>
+        <item>Animation scale 1.25x</item>
         <item>Animation scale 1.5x</item>
+        <item>Animation scale 1.75x</item>
         <item>Animation scale 2x</item>
+        <item>Animation scale 2.25x</item>
+        <item>Animation scale 2.5x</item>
         <item>Animation scale 5x</item>
         <item>Animation scale 10x</item>
     </string-array>
@@ -638,10 +658,16 @@
     <!-- Values for transition animation scale preference. -->
     <string-array name="transition_animation_scale_values" translatable="false" >
         <item>0</item>
+        <item>.25</item>
         <item>.5</item>
+        <item>.75</item>
         <item>1</item>
+        <item>1.25</item>
         <item>1.5</item>
+        <item>1.75</item>
         <item>2</item>
+        <item>2.25</item>
+        <item>2.5</item>
         <item>5</item>
         <item>10</item>
     </string-array>
