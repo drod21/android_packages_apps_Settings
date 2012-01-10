@@ -13,4 +13,9 @@
             android:key="show_search_button"
             android:title="@string/show_search_button_title" >
         </CheckBoxPreference>
+
+        <CheckBoxPreference
+            android:key="use_alt_icons"
+            android:title="@string/use_alt_icons_title" >
+        </CheckBoxPreference>
 </PreferenceScreen>
