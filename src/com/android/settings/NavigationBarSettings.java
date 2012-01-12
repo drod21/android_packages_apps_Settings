@@ -4,6 +4,7 @@ import com.android.settings.R;
 import net.margaritov.preference.colorpicker.ColorPickerPreference;
 import android.os.Bundle;
 import android.preference.CheckBoxPreference;
+import android.preference.ListPreference;
 import android.preference.Preference;
 import android.preference.PreferenceActivity;
 import android.preference.PreferenceScreen;
@@ -13,12 +14,12 @@ import android.provider.Settings.SettingNotFoundException;
 
 public class NavigationBarSettings extends SettingsPreferenceFragment implements OnPreferenceChangeListener {
 
-    private static final String SHOW_MENU_BUTTON = "show_menu_button";
-    private static final String SHOW_SEARCH_BUTTON = "show_search_button";
+    private static final String NAV_BUTTONS_SLOT_ONE = "nav_buttons_slot_one";
+    private static final String NAV_BUTTONS_SLOT_FIVE = "nav_buttons_slot_five";
     private static final String USE_ALT_ICONS = "use_alt_icons";
     private static final String NAVIGATION_BUTTON_COLOR = "navigation_button_color";
-    private CheckBoxPreference mShowMenuButton;
-    private CheckBoxPreference mShowSearchButton;
+    private ListPreference mSlotOne;
+    private ListPreference mSlotFive;
     private CheckBoxPreference mUseAltIcons;
     private ColorPickerPreference mNavButtonColor;
 
@@ -28,13 +29,17 @@ public class NavigationBarSettings extends SettingsPreferenceFragment implements
         addPreferencesFromResource(R.xml.navigation_bar_settings);
         PreferenceScreen prefSet = getPreferenceScreen();
 
-        mShowMenuButton = (CheckBoxPreference) prefSet.findPreference(SHOW_MENU_BUTTON);
-        mShowMenuButton.setChecked(Settings.System.getInt(getContentResolver(),
-            Settings.System.SHOW_MENU_BUTTON, 0) == 1);
+        mSlotOne = (ListPreference) prefSet.findPreference(NAV_BUTTONS_SLOT_ONE);
+        int slotOneValue = Settings.System.getInt(getContentResolver(),
+                Settings.System.NAV_BUTTONS_SLOT_ONE, 0);
+        mSlotOne.setValueIndex(slotOneValue);
+        mSlotOne.setOnPreferenceChangeListener(this);
 
-        mShowSearchButton = (CheckBoxPreference) prefSet.findPreference(SHOW_SEARCH_BUTTON);
-        mShowSearchButton.setChecked(Settings.System.getInt(getContentResolver(),
-            Settings.System.SHOW_SEARCH_BUTTON, 0) == 1);
+        mSlotFive = (ListPreference) prefSet.findPreference(NAV_BUTTONS_SLOT_FIVE);
+        int slotFiveValue = Settings.System.getInt(getContentResolver(),
+                Settings.System.NAV_BUTTONS_SLOT_FIVE, 0);
+        mSlotFive.setValueIndex(slotFiveValue);
+        mSlotFive.setOnPreferenceChangeListener(this);
 
         mUseAltIcons = (CheckBoxPreference) prefSet.findPreference(USE_ALT_ICONS);
         mUseAltIcons.setChecked(Settings.System.getInt(getContentResolver(),
@@ -46,17 +51,7 @@ public class NavigationBarSettings extends SettingsPreferenceFragment implements
 
     public boolean onPreferenceTreeClick(PreferenceScreen preferenceScreen, Preference preference) {
         boolean value;
-        if (preference == mShowMenuButton) {
-            value = mShowMenuButton.isChecked();
-            Settings.System.putInt(getContentResolver(),
-                Settings.System.SHOW_MENU_BUTTON, value ? 1 : 0);
-            return true;
-        } else if (preference == mShowSearchButton) {
-            value = mShowSearchButton.isChecked();
-            Settings.System.putInt(getContentResolver(),
-                Settings.System.SHOW_SEARCH_BUTTON, value ? 1 : 0);
-            return true;
-        } else if (preference == mUseAltIcons) {
+        if (preference == mUseAltIcons) {
             value = mUseAltIcons.isChecked();
             Settings.System.putInt(getContentResolver(),
                 Settings.System.USE_ALT_ICONS, value ? 1 : 0);
@@ -73,6 +68,16 @@ public class NavigationBarSettings extends SettingsPreferenceFragment implements
             int intHex = ColorPickerPreference.convertToColorInt(hex);
             Settings.System.putInt(getActivity().getContentResolver(),
                     Settings.System.NAVIGATION_BUTTON_COLOR, intHex);
+            return true;
+        } else if (preference == mSlotOne) {
+            int valOne = Integer.valueOf((String) newValue);
+            Settings.System.putInt(getContentResolver(),
+                    Settings.System.NAV_BUTTONS_SLOT_ONE, valOne);
+            return true;
+        } else if (preference == mSlotFive) {
+            int valFive = Integer.valueOf((String) newValue);
+            Settings.System.putInt(getContentResolver(),
+                    Settings.System.NAV_BUTTONS_SLOT_FIVE, valFive);
             return true;
         }
         return false;
