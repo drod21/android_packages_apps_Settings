@@ -4,6 +4,8 @@
     android:title="@string/navigation_bar_prefs_title"
     android:key="navigation_bar_prefs">
 
+    <PreferenceCategory android:key="nav_button_slot_settings"
+            android:title="@string/nav_button_slot_settings_title" >
         <ListPreference
             android:key="nav_buttons_slot_one"
             android:title="@string/nav_buttons_slot_one_title"
@@ -11,11 +13,31 @@
             android:entryValues="@array/nav_button_values"/>
 
         <ListPreference
+            android:key="nav_buttons_slot_two"
+            android:title="@string/nav_buttons_slot_two_title"
+            android:entries="@array/nav_button_middle_entries"
+            android:entryValues="@array/nav_button_middle_values"/>
+
+        <ListPreference
+            android:key="nav_buttons_slot_three"
+            android:title="@string/nav_buttons_slot_three_title"
+            android:entries="@array/nav_button_middle_entries"
+            android:entryValues="@array/nav_button_middle_values"/>
+
+        <ListPreference
+            android:key="nav_buttons_slot_four"
+            android:title="@string/nav_buttons_slot_four_title"
+            android:entries="@array/nav_button_middle_entries"
+            android:entryValues="@array/nav_button_middle_values"/>
+
+        <ListPreference
             android:key="nav_buttons_slot_five"
             android:title="@string/nav_buttons_slot_five_title"
             android:entries="@array/nav_button_entries"
             android:entryValues="@array/nav_button_values"/>
-
+    </PreferenceCategory>
+    <PreferenceCategory android:key="nav_buttons_other_settings"
+            android:title="@string/other_navigation_bar_settings">
         <CheckBoxPreference
             android:key="use_alt_icons"
             android:title="@string/use_alt_icons_title" >
@@ -26,4 +48,5 @@
             android:title="@string/nav_button_color_title"
             android:defaultValue="#FFFFFF"
             />
+    </PreferenceCategory>
 </PreferenceScreen>

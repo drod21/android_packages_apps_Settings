@@ -15,10 +15,16 @@ import android.provider.Settings.SettingNotFoundException;
 public class NavigationBarSettings extends SettingsPreferenceFragment implements OnPreferenceChangeListener {
 
     private static final String NAV_BUTTONS_SLOT_ONE = "nav_buttons_slot_one";
+    private static final String NAV_BUTTONS_SLOT_TWO = "nav_buttons_slot_two";
+    private static final String NAV_BUTTONS_SLOT_THREE = "nav_buttons_slot_three";
+    private static final String NAV_BUTTONS_SLOT_FOUR = "nav_buttons_slot_four";
     private static final String NAV_BUTTONS_SLOT_FIVE = "nav_buttons_slot_five";
     private static final String USE_ALT_ICONS = "use_alt_icons";
     private static final String NAVIGATION_BUTTON_COLOR = "navigation_button_color";
     private ListPreference mSlotOne;
+    private ListPreference mSlotTwo;
+    private ListPreference mSlotThree;
+    private ListPreference mSlotFour;
     private ListPreference mSlotFive;
     private CheckBoxPreference mUseAltIcons;
     private ColorPickerPreference mNavButtonColor;
@@ -34,6 +40,24 @@ public class NavigationBarSettings extends SettingsPreferenceFragment implements
                 Settings.System.NAV_BUTTONS_SLOT_ONE, 0);
         mSlotOne.setValueIndex(slotOneValue);
         mSlotOne.setOnPreferenceChangeListener(this);
+
+        mSlotTwo = (ListPreference) prefSet.findPreference(NAV_BUTTONS_SLOT_TWO);
+        int slotTwoValue = Settings.System.getInt(getContentResolver(),
+                Settings.System.NAV_BUTTONS_SLOT_TWO, 1);
+        mSlotTwo.setValueIndex(slotTwoValue);
+        mSlotTwo.setOnPreferenceChangeListener(this);
+
+        mSlotThree = (ListPreference) prefSet.findPreference(NAV_BUTTONS_SLOT_THREE);
+        int slotThreeValue = Settings.System.getInt(getContentResolver(),
+                Settings.System.NAV_BUTTONS_SLOT_THREE, 2);
+        mSlotThree.setValueIndex(slotThreeValue);
+        mSlotThree.setOnPreferenceChangeListener(this);
+
+        mSlotFour = (ListPreference) prefSet.findPreference(NAV_BUTTONS_SLOT_FOUR);
+        int slotFourValue = Settings.System.getInt(getContentResolver(),
+                Settings.System.NAV_BUTTONS_SLOT_FOUR, 3);
+        mSlotFour.setValueIndex(slotFourValue);
+        mSlotFour.setOnPreferenceChangeListener(this);
 
         mSlotFive = (ListPreference) prefSet.findPreference(NAV_BUTTONS_SLOT_FIVE);
         int slotFiveValue = Settings.System.getInt(getContentResolver(),
@@ -73,6 +97,21 @@ public class NavigationBarSettings extends SettingsPreferenceFragment implements
             int valOne = Integer.valueOf((String) newValue);
             Settings.System.putInt(getContentResolver(),
                     Settings.System.NAV_BUTTONS_SLOT_ONE, valOne);
+            return true;
+        } else if (preference == mSlotTwo) {
+            int valTwo = Integer.valueOf((String) newValue);
+            Settings.System.putInt(getContentResolver(),
+                    Settings.System.NAV_BUTTONS_SLOT_TWO, valTwo);
+            return true;
+        } else if (preference == mSlotThree) {
+            int valThree = Integer.valueOf((String) newValue);
+            Settings.System.putInt(getContentResolver(),
+                    Settings.System.NAV_BUTTONS_SLOT_THREE, valThree);
+            return true;
+        } else if (preference == mSlotFour) {
+            int valFour = Integer.valueOf((String) newValue);
+            Settings.System.putInt(getContentResolver(),
+                    Settings.System.NAV_BUTTONS_SLOT_FOUR, valFour);
             return true;
         } else if (preference == mSlotFive) {
             int valFive = Integer.valueOf((String) newValue);

@@ -3808,9 +3808,13 @@ found in the list of installed apps.</string>
     <string name="battery_percent_title">Show battery percentages</string>
     <string name="clock_style_title">Clock style</string>
     <string name="am_pm_style_title">AM PM style</string>
-
-    <string name="nav_buttons_slot_one_title">Slot one navigation button</string>
-    <string name="nav_buttons_slot_five_title">Slot five navigation button</string>
+    <string name="nav_button_slot_settings_title">Navigation slot settings</string>
+    <string name="nav_buttons_slot_one_title">Slot one</string>
+    <string name="nav_buttons_slot_two_title">Slot two</string>
+    <string name="nav_buttons_slot_three_title">Slot three</string>
+    <string name="nav_buttons_slot_four_title">Slot four</string>
+    <string name="nav_buttons_slot_five_title">Slot five</string>
+    <string name="other_navigation_bar_settings">Other settings</string>
     <string name="use_alt_icons_title">Use alternate icons</string>
     <string name="nav_button_color_title">Navigation button color</string>
 
