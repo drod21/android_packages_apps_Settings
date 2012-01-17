@@ -57,33 +57,6 @@
         android:fragment="com.android.settings.WirelessSettings"
         android:icon="@drawable/empty_icon" />
 
-    <!-- Advanced Settings -->
-    <header android:title="@string/header_category_advanced_settings" />
-
-    <header
-        android:id="@+id/performance_settings"
-        android:fragment="com.android.settings.PerformanceSettings"
-        android:icon="@drawable/ic_appwidget_settings_rootzboat_full_holo"
-        android:title="@string/cpu_settings_title" />
-
-    <header
-        android:id="@+id/notification_pulse_settings"
-        android:fragment="com.android.settings.NotificationPulseSettings"
-        android:icon="@drawable/ic_appwidget_notifications_rootzboat_full_holo"
-        android:title="@string/notification_pulse_settings" />
-
-    <header
-	android:id="@+id/status_bar_prefs"
-	android:fragment="com.android.settings.StatusBarSettings"
-        android:icon="@drawable/ic_appwidget_status_rootzboat_full_holo"
-        android:title="@string/status_bar_prefs_title" />
-
-    <header
-	android:id="@+id/navigation_bar_prefs"
-	android:fragment="com.android.settings.NavigationBarSettings"
-        android:icon="@drawable/ic_appwidget_navigation_rootzboat_full_holo"
-        android:title="@string/navigation_bar_prefs_title" />
-
     <!-- DEVICE -->
     <header android:title="@string/header_category_device" />
 
@@ -129,6 +102,38 @@
         <intent android:action="com.android.settings.MANUFACTURER_APPLICATION_SETTING" />
     </header>
 
+    <!-- Advanced Settings -->
+    <header android:title="@string/header_category_advanced_settings" />
+
+    <header
+        android:id="@+id/performance_settings"
+        android:fragment="com.android.settings.PerformanceSettings"
+        android:icon="@drawable/ic_appwidget_settings_rootzboat_full_holo"
+        android:title="@string/cpu_settings_title" />
+
+    <header
+        android:id="@+id/lockscreen_prefs"
+        android:fragment="com.android.settings.LockscreenSettings"
+        android:icon="@drawable/ic_appwidget_lockscreen_rootzboat_full_holo"
+        android:title="@string/lockscreen_prefs_title" />
+
+    <header
+	    android:id="@+id/navigation_bar_prefs"
+	    android:fragment="com.android.settings.NavigationBarSettings"
+        android:icon="@drawable/ic_appwidget_navigation_rootzboat_full_holo"
+        android:title="@string/navigation_bar_prefs_title" />
+
+    <header
+        android:id="@+id/notification_pulse_settings"
+        android:fragment="com.android.settings.NotificationPulseSettings"
+        android:icon="@drawable/ic_appwidget_notifications_rootzboat_full_holo"
+        android:title="@string/notification_pulse_settings" />
+
+    <header
+	    android:id="@+id/status_bar_prefs"
+	    android:fragment="com.android.settings.StatusBarSettings"
+        android:icon="@drawable/ic_appwidget_status_rootzboat_full_holo"
+        android:title="@string/status_bar_prefs_title" />
 
     <!-- PERSONAL -->
     <header android:title="@string/header_category_personal" />

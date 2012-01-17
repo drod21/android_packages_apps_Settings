@@ -857,4 +857,24 @@
         <item>Media next</item>
     </string-array>
 
+    <string-array name="lockscreen_target_values">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+    </string-array>
+    <string-array name="lockscreen_target_entries">
+        <item>Stock</item>
+        <item>Stock w/ Sound</item>
+        <item>Camera| Mms |Unlock</item>
+        <item>Sound | Mms |Unlock</item>
+        <item>Camera|Phone|Unlock</item>
+        <item>Sound |Phone|Unlock</item>
+        <item>Camera|Phone| Mms |Unlock</item>
+        <item>Sound |Phone| Mms |Unlock</item>
+    </string-array>
 </resources>

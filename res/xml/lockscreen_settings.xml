@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    android:title="@string/lockscreen_prefs_title"
+    android:key="lockscreen_prefs">
+
+        <ListPreference
+            android:key="lockscreen_targets"
+            android:title="@string/lockscreen_target_title"
+            android:entries="@array/lockscreen_target_entries"
+            android:entryValues="@array/lockscreen_target_values"/>
+
+        <CheckBoxPreference
+            android:key="center_lockscreen"
+            android:title="@string/center_lockscreen_title" />
+
+</PreferenceScreen>
