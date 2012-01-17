@@ -3790,6 +3790,7 @@ found in the list of installed apps.</string>
     <string name="status_bar_prefs_title">Status Bar</string>
     <string name="navigation_bar_prefs_title">Navigation Bar</string>
     <string name="notification_pulse_settings">Pulse Notifications</string>
+    <string name="lockscreen_prefs_title">Lockscreen Settings</string>
 
     <!-- pulse notifications -->
     <string name="notification_category_pulse_title">Pulse Notification</string>
@@ -3838,4 +3839,6 @@ found in the list of installed apps.</string>
     <string name="freq">Frequency</string>
     <string name="current">mV current</string>
     <string name="saved">mV saved</string>
+    <string name="lockscreen_target_title">Lockscreen targets</string>
+    <string name="center_lockscreen_title">Centered lockscreen</string>
 </resources>
