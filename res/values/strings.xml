@@ -3788,11 +3788,11 @@ found in the list of installed apps.</string>
     <string name="additional_system_update_settings_list_item_title">Additional system updates</string>
 
     <!-- Category names for RootzBoat Settings -->
-    <string name="performance_prefs_title">CPU Settings</string>
+    <string name="performance_prefs_title">Performance</string>
     <string name="status_bar_prefs_title">Status Bar</string>
     <string name="navigation_bar_prefs_title">Navigation Bar</string>
     <string name="notification_pulse_settings">Pulse Notifications</string>
-    <string name="lockscreen_prefs_title">Lockscreen Settings</string>
+    <string name="lockscreen_prefs_title">Lockscreen</string>
 
     <!-- pulse notifications -->
     <string name="notification_category_pulse_title">Pulse Notification</string>
