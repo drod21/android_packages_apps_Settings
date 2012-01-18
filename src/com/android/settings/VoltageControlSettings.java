@@ -45,7 +45,7 @@ public class VoltageControlSettings extends Activity {
     private static final String TAG = "VoltageControlSettings";
     public static final String KEY_APPLY_BOOT = "apply_voltages_at_boot";
     public static final String MV_TABLE0 = "/sys/devices/system/cpu/cpu0/cpufreq/UV_mV_table";
-    public static final String MV_TABLE1 = "/sys/device/system/cpu/cpu1/cpufreq_UV_mV_table";
+    public static final String MV_TABLE1 = "/sys/devices/system/cpu/cpu1/cpufreq_UV_mV_table";
     public static final int DIALOG_EDIT_VOLT = 0;
     private List<Voltage> mVoltages;
     private ListAdapter mAdapter;
