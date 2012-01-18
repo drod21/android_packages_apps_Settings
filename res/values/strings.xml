@@ -3822,6 +3822,7 @@ found in the list of installed apps.</string>
     <string name="other_navigation_bar_settings">Other settings</string>
     <string name="use_alt_icons_title">Use alternate icons</string>
     <string name="key_button_glow_title">Use fast button glow</string>
+    <string name="key_button_glow_summary">Needs reboot to take effect</string>
     <string name="nav_button_color_title">Navigation button color</string>
 
     <string name="cpu_settings_title">CPU settings</string>
