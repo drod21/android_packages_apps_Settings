@@ -41,7 +41,8 @@
 
         <CheckBoxPreference
             android:key="key_button_glow"
-            android:title="@string/key_button_glow_title" >
+            android:title="@string/key_button_glow_title" 
+            android:summary="@string/key_button_glow_summary">
         </CheckBoxPreference>
 
         <net.margaritov.preference.colorpicker.ColorPickerPreference
