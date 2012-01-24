@@ -18,6 +18,8 @@ public class PerformanceSettings extends SettingsPreferenceFragment implements
     public static final String GOV_PREFERENCE = "gov_preference";
     public static final String GOVERNORS_LIST_FILE = "/sys/devices/system/cpu/cpu0/cpufreq/scaling_available_governors";
     public static final String GOVERNOR = "/sys/devices/system/cpu/cpu0/cpufreq/scaling_governor";
+    public static final String IO_SCHEDULER = "/sys/block/mmcblk0/queue/scheduler";
+    public static final String IO_PREFERENCE = "io_preference";
     public static final String MIN_FREQ_PREFERENCE = "min_freq_preference";
     public static final String MAX_FREQ_PREFERENCE = "max_freq_preference";
     public static final String FREQ_LIST_FILE = "/sys/devices/system/cpu/cpu0/cpufreq/scaling_available_frequencies";
@@ -28,10 +30,12 @@ public class PerformanceSettings extends SettingsPreferenceFragment implements
     private static final String TAG = "PerformanceSettings";
 
     private String mGovernorFormat;
+    private String mIOFormat;
     private String mMinFrequencyFormat;
     private String mMaxFrequencyFormat;
 
     private ListPreference mGovernorPref;
+    private ListPreference mIOPref;
     private ListPreference mMinFrequencyPref;
     private ListPreference mMaxFrequencyPref;
 
@@ -40,6 +44,7 @@ public class PerformanceSettings extends SettingsPreferenceFragment implements
         super.onCreate(savedInstanceState);
 
         mGovernorFormat = getString(R.string.cpu_governors_summary);
+        mIOFormat = getString (R.string.io_scheduler_summary);
         mMinFrequencyFormat = getString(R.string.cpu_min_freq_summary);
         mMaxFrequencyFormat = getString(R.string.cpu_max_freq_summary);
 
@@ -56,6 +61,8 @@ public class PerformanceSettings extends SettingsPreferenceFragment implements
             frequencies[i] = toMHz(availableFrequencies[i]);
         }
 
+        String ioscheduler = getIOScheduler();
+        String[] ioschedulers = getAvailableIOSchedulers();
         addPreferencesFromResource(R.xml.performance_settings);
 
         PreferenceScreen PrefScreen = getPreferenceScreen();
@@ -68,6 +75,15 @@ public class PerformanceSettings extends SettingsPreferenceFragment implements
         mGovernorPref.setValue(temp);
         mGovernorPref.setSummary(String.format(mGovernorFormat, temp));
         mGovernorPref.setOnPreferenceChangeListener(this);
+
+        temp = ioscheduler;
+
+        mIOPref = (ListPreference) PrefScreen.findPreference(IO_PREFERENCE);
+        mIOPref.setEntryValues(ioschedulers);
+        mIOPref.setEntries(ioschedulers);
+        mIOPref.setValue(temp);
+        mIOPref.setSummary(String.format(mIOFormat, temp));
+        mIOPref.setOnPreferenceChangeListener(this);
 
         temp = readOneLine(FREQ_MIN_FILE);
 
@@ -104,6 +120,10 @@ public class PerformanceSettings extends SettingsPreferenceFragment implements
 
         temp = readOneLine(GOVERNOR);
         mGovernorPref.setSummary(String.format(mGovernorFormat, temp));
+
+        String ioscheduler = getIOScheduler();
+        temp = ioscheduler;
+        mIOPref.setSummary(String.format(mIOFormat, temp));
     }
 
     public boolean onPreferenceChange(Preference preference, Object newValue) {
@@ -112,6 +132,8 @@ public class PerformanceSettings extends SettingsPreferenceFragment implements
         if (newValue != null) {
             if (preference == mGovernorPref) {
                 fname = GOVERNOR;
+            } else if (preference == mIOPref) {
+                fname = IO_SCHEDULER;
             } else if (preference == mMinFrequencyPref) {
                 fname = FREQ_MIN_FILE;
             } else if (preference == mMaxFrequencyPref) {
@@ -121,6 +143,8 @@ public class PerformanceSettings extends SettingsPreferenceFragment implements
             if (writeOneLine(fname, (String) newValue)) {
                 if (preference == mGovernorPref) {
                     mGovernorPref.setSummary(String.format(mGovernorFormat, (String) newValue));
+                } else if (preference == mIOPref) {
+                    mIOPref.setSummary(String.format(mIOFormat, (String) newValue));
                 } else if (preference == mMinFrequencyPref) {
                     mMinFrequencyPref.setSummary(String.format(mMinFrequencyFormat,
                             toMHz((String) newValue)));
@@ -167,6 +191,44 @@ public class PerformanceSettings extends SettingsPreferenceFragment implements
             return false;
         }
         return true;
+    }
+
+    public static String[] getAvailableIOSchedulers() {
+        String [] schedulers = null;
+        String [] aux = readStringArray(IO_SCHEDULER);
+        if (aux != null) {
+            schedulers = new String[aux.length];
+            for (int i = 0; i < aux.length; i++) {
+                if (aux[i].charAt(0) == '[') {
+                    schedulers[i] = aux[i].substring(1, aux[i].length() - 1);
+                } else {
+                    schedulers[i] = aux[i];
+                }
+            }
+        }
+        return schedulers;
+    }
+
+    private static String[] readStringArray(String fname) {
+        String line = readOneLine(fname);
+        if (line != null) {
+            return line.split(" ");
+        }
+        return null;
+    }
+
+    public static String getIOScheduler() {
+        String scheduler = null;
+        String[] schedulers = readStringArray(IO_SCHEDULER);
+        if (schedulers != null) {
+            for (String s : schedulers) {
+                if (s.charAt(0) == '[') {
+                    scheduler = s.substring(1, s.length() - 1);
+                    break;
+                }
+            }
+        }
+        return scheduler;
     }
 
     private String toMHz(String mhzString) {

@@ -3831,6 +3831,8 @@ found in the list of installed apps.</string>
     <string name="cpu_summary">Governor and clock settings</string>
     <string name="cpu_governors_title">Available governors</string>
     <string name="cpu_governors_summary">List of available governors\nCurrently selected: %S</string>
+    <string name="io_scheduler_title">Available IO schedulers</string>
+    <string name="io_scheduler_summary">List of available IO schedulers \nCurrently selected: %S</string>
     <string name="cpu_min_freq_title">Min CPU frequency</string>
     <string name="cpu_min_freq_summary">Minimum CPU frequency\nCurrently: %s</string>
     <string name="cpu_max_freq_title">Max CPU frequency</string>

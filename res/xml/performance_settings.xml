@@ -20,6 +20,11 @@
             android:dialogTitle="@string/cpu_governors_title"
             android:title="@string/cpu_governors_title" />
 
+    <ListPreference
+            android:key="io_preference"
+            android:dialogTitle="@string/io_scheduler_title"
+            android:title="@string/io_scheduler_title" />
+
     <CheckBoxPreference
             android:key="sob_preference"
             android:title="@string/cpu_set_on_boot"
