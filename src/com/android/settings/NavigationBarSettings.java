@@ -26,6 +26,7 @@ public class NavigationBarSettings extends SettingsPreferenceFragment implements
     private static final String USE_ALT_ICONS = "use_alt_icons";
     private static final String NAVIGATION_BUTTON_COLOR = "navigation_button_color";
     private static final String KEY_BUTTON_GLOW = "key_button_glow";
+    private static final String USE_QUICK_DASH = "use_quick_dash";
     private ListPreference mSlotOne;
     private ListPreference mSlotTwo;
     private ListPreference mSlotThree;
@@ -33,6 +34,7 @@ public class NavigationBarSettings extends SettingsPreferenceFragment implements
     private ListPreference mSlotFive;
     private ColorPickerPreference mNavButtonColor;
     private CheckBoxPreference mKeyButtonGlow;
+    private CheckBoxPreference mUseQuickDash;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -74,6 +76,10 @@ public class NavigationBarSettings extends SettingsPreferenceFragment implements
         mKeyButtonGlow.setChecked(Settings.System.getInt(getContentResolver(),
             Settings.System.KEY_BUTTON_GLOW, 0) == 1);
 
+        mUseQuickDash = (CheckBoxPreference) prefSet.findPreference(USE_QUICK_DASH);
+        mUseQuickDash.setChecked(Settings.System.getInt(getContentResolver(),
+            Settings.System.USE_QUICK_DASH, 1) == 1);
+
         mNavButtonColor = (ColorPickerPreference) prefSet.findPreference(NAVIGATION_BUTTON_COLOR);
         mNavButtonColor.setOnPreferenceChangeListener(this);
     }
@@ -94,6 +100,11 @@ public class NavigationBarSettings extends SettingsPreferenceFragment implements
             value = mKeyButtonGlow.isChecked();
             Settings.System.putInt(getContentResolver(),
                 Settings.System.KEY_BUTTON_GLOW, value ? 1 : 0);
+            return true;
+        } else if (preference == mUseQuickDash) {
+            value = mUseQuickDash.isChecked();
+            Settings.System.putInt(getContentResolver(),
+                Settings.System.USE_QUICK_DASH, value ? 1 : 0);
             return true;
         }
         return false;
