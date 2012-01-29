@@ -49,6 +49,13 @@
             android:summary="@string/key_button_glow_summary">
         </CheckBoxPreference>
 
+        <CheckBoxPreference
+            android:key="use_quick_dash"
+            android:title="@string/use_quick_dash_title"
+            android:summaryOn="@string/use_quick_dash_summary_on"
+            android:summaryOff="@string/use_quick_dash_summary_off">
+        </CheckBoxPreference>
+
         <net.margaritov.preference.colorpicker.ColorPickerPreference
             android:key="navigation_button_color"
             android:title="@string/nav_button_color_title"
