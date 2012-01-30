@@ -18,6 +18,14 @@
             android:key="volume_wake"
             android:title="@string/volume_wake_title" />
 
+        <CheckBoxPreference
+            android:key="crt_on_animation"
+            android:title="@string/crt_on_animation_title" />
+
+        <CheckBoxPreference
+            android:key="crt_off_animation"
+            android:title="@string/crt_off_animation_title" />
+
         <Preference
             android:key="custom_carrier_label"
             android:title="@string/custom_carrier_label_title" />
