@@ -23,12 +23,12 @@ public class LockscreenSettings extends SettingsPreferenceFragment implements On
     private static final String CENTER_LOCKSCREEN = "center_lockscreen";
     private static final String VOLUME_WAKE = "volume_wake";
     private static final String CUSTOM_CARRIER_LABEL = "custom_carrier_label";
-    private static final String CRT_ON_ANIMATION = "crt_on_animation";
+  //  private static final String CRT_ON_ANIMATION = "crt_on_animation";
     private static final String CRT_OFF_ANIMATION = "crt_off_animation";
     private ListPreference mLockscreenTarget;
     private CheckBoxPreference mCenteredLockscreen;
     private CheckBoxPreference mVolumeWake;
-    private CheckBoxPreference mCrtOnAnimation;
+   // private CheckBoxPreference mCrtOnAnimation;
     private CheckBoxPreference mCrtOffAnimation;
     private Preference mCustomLabel;
     private String mCustomLabelText = null;
@@ -53,9 +53,9 @@ public class LockscreenSettings extends SettingsPreferenceFragment implements On
         mVolumeWake.setChecked(Settings.System.getInt(getContentResolver(),
                 Settings.System.VOLUME_WAKE, 0) == 1);
 
-        mCrtOnAnimation = (CheckBoxPreference) prefSet.findPreference(CRT_ON_ANIMATION);
-        mCrtOnAnimation.setChecked(Settings.System.getInt(getContentResolver(),
-                Settings.System.CRT_ON_ANIMATION, 0) == 1);
+      //  mCrtOnAnimation = (CheckBoxPreference) prefSet.findPreference(CRT_ON_ANIMATION);
+      //  mCrtOnAnimation.setChecked(Settings.System.getInt(getContentResolver(),
+      //          Settings.System.CRT_ON_ANIMATION, 0) == 1);
 
         mCrtOffAnimation = (CheckBoxPreference) prefSet.findPreference(CRT_OFF_ANIMATION);
         mCrtOffAnimation.setChecked(Settings.System.getInt(getContentResolver(),
@@ -77,11 +77,11 @@ public class LockscreenSettings extends SettingsPreferenceFragment implements On
             Settings.System.putInt(getContentResolver(),
                 Settings.System.VOLUME_WAKE, value ? 1 : 0);
             return true;
-        } else if (preference == mCrtOnAnimation) {
-            value = mCrtOnAnimation.isChecked();
-            Settings.System.putInt(getContentResolver(),
-                Settings.System.CRT_ON_ANIMATION, value ? 1 : 0);
-            return true;
+       // } else if (preference == mCrtOnAnimation) {
+       //     value = mCrtOnAnimation.isChecked();
+       //     Settings.System.putInt(getContentResolver(),
+       //         Settings.System.CRT_ON_ANIMATION, value ? 1 : 0);
+       //     return true;
         } else if (preference == mCrtOffAnimation) {
             value = mCrtOffAnimation.isChecked();
             Settings.System.putInt(getContentResolver(),

@@ -18,9 +18,9 @@
             android:key="volume_wake"
             android:title="@string/volume_wake_title" />
 
-        <CheckBoxPreference
+   <!--     <CheckBoxPreference
             android:key="crt_on_animation"
-            android:title="@string/crt_on_animation_title" />
+            android:title="@string/crt_on_animation_title" /> -->
 
         <CheckBoxPreference
             android:key="crt_off_animation"
