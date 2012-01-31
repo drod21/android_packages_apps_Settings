@@ -53,4 +53,9 @@
             android:title="@string/notification_pulse_title"
             android:persistent="false" />
 
+        <com.android.settings.GammaTuningPreference
+            android:key="gamma_tuning"
+            android:title="@string/gamma_tuning_title"
+            android:summary="@string/gamma_tuning_summary" />
+
 </PreferenceScreen>

@@ -42,6 +42,13 @@ import android.view.ViewGroup;
 import android.widget.ListView;
 import android.widget.TabWidget;
 
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.FileReader;
+import java.io.IOException;
+import java.io.SyncFailedException;
 import java.net.InetAddress;
 import java.util.Iterator;
 import java.util.List;
@@ -71,6 +78,10 @@ public class Utils {
      * to specify the summary text that should be displayed for the preference.
      */
     private static final String META_DATA_PREFERENCE_SUMMARY = "com.android.settings.summary";
+
+    private static final String TAG = "GNexusParts_Utils";
+    private static final String TAG_READ = "GNexusParts_Utils_Read";
+    private static final String TAG_WRITE = "GNexusParts_Utils_Write";
 
     /**
      * Finds a matching activity for a preference's intent. If a matching
@@ -440,5 +451,105 @@ public class Utils {
         } else {
             return R.string.tether_settings_title_bluetooth;
         }
+    }
+
+    /**
+     * Write a string value to the specified file.
+     * 
+     * @param filename The filename
+     * @param value The value
+     */
+    public static void writeValue(String filename, String value) {
+        FileOutputStream fos = null;
+        try {
+            fos = new FileOutputStream(new File(filename), false);
+            fos.write(value.getBytes());
+            fos.flush();
+            // fos.getFD().sync();
+        } catch (FileNotFoundException ex) {
+        } catch (SyncFailedException ex) {
+        } catch (IOException ex) {
+        } catch (RuntimeException ex) {
+        } finally {
+            if (fos != null) {
+                try {
+                    fos.close();
+                } catch (IOException ex) {
+                } catch (RuntimeException ex) {
+                }
+            }
+        }
+
+    }
+
+    /**
+     * Write a string value to the specified file.
+     * 
+     * @param filename The filename
+     * @param value The value
+     */
+    public static void writeValue(String filename, Boolean value) {
+        FileOutputStream fos = null;
+        String sEnvia;
+        try {
+            fos = new FileOutputStream(new File(filename), false);
+            if (value)
+                sEnvia = "1";
+            else
+                sEnvia = "0";
+            fos.write(sEnvia.getBytes());
+            fos.flush();
+            // fos.getFD().sync();
+        } catch (FileNotFoundException ex) {
+        } catch (SyncFailedException ex) {
+        } catch (IOException ex) {
+        } catch (RuntimeException ex) {
+        } finally {
+            if (fos != null) {
+                try {
+                    fos.close();
+                } catch (IOException ex) {
+                } catch (RuntimeException ex) {
+                }
+            }
+        }
+    }
+
+    /**
+     * Write the "color value" to the specified file. The value is scaled from
+     * an integer to an unsigned integer by multiplying by 2.
+     * 
+     * @param filename The filename
+     * @param value The value of max value Integer.MAX
+     */
+    public static void writeColor(String filename, int value) {
+        writeValue(filename, String.valueOf((long) value * 2));
+    }
+
+    /**
+     * Check if the specified file exists.
+     * 
+     * @param filename The filename
+     * @return Whether the file exists or not
+     */
+    public static boolean fileExists(String filename) {
+        return new File(filename).exists();
+    }
+
+    // Read value from sysfs interface
+    public static String readOneLine(String sFile) {
+        BufferedReader brBuffer;
+        String sLine = null;
+
+        try {
+            brBuffer = new BufferedReader(new FileReader(sFile), 512);
+            try {
+                sLine = brBuffer.readLine();
+            } finally {
+                brBuffer.close();
+            }
+        } catch (Exception e) {
+        }
+        return sLine;
     }
 }
