@@ -1,8 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <PreferenceCategory android:title="@string/cpu_information_title">
+    <Preference
+            android:key="current_kernel"
+            style="?android:preferenceScreenStyle"
+            android:title="@string/current_kernel_title"
+            android:selectable="false"/>
+    <Preference
+            android:key="current_cpu_speed"
+            style="?android:preferenceScreenStyle"
+            android:title="@string/current_cpu_speed_title"
+            android:selectable="false"/>
+    </PreferenceCategory>
     <PreferenceCategory android:title="@string/cpu_settings_title"
         android:key="cpu">
-
+            
     <ListPreference
             android:key="min_freq_preference"
             android:dialogTitle="@string/cpu_min_freq_title"

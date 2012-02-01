@@ -1,6 +1,8 @@
 package com.android.settings;
 
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.preference.ListPreference;
 import android.preference.Preference;
 import android.preference.PreferenceActivity;
@@ -15,6 +17,10 @@ import java.io.IOException;
 public class PerformanceSettings extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener {
 
+    public static final String CURRENT_KERNEL = "current_kernel";
+    public static final String CURRENT_KERNEL_FILE = "/proc/version";
+    public static final String CURRENT_CPU_SPEED = "current_cpu_speed";
+    public static final String CURRENT_CPU_FILE = "/sys/devices/system/cpu/cpu0/cpufreq/scaling_cur_freq";
     public static final String GOV_PREFERENCE = "gov_preference";
     public static final String GOVERNORS_LIST_FILE = "/sys/devices/system/cpu/cpu0/cpufreq/scaling_available_governors";
     public static final String GOVERNOR = "/sys/devices/system/cpu/cpu0/cpufreq/scaling_governor";
@@ -34,10 +40,40 @@ public class PerformanceSettings extends SettingsPreferenceFragment implements
     private String mMinFrequencyFormat;
     private String mMaxFrequencyFormat;
 
+    private Preference mCurKernel;
+    private Preference mCurFreq;
     private ListPreference mGovernorPref;
     private ListPreference mIOPref;
     private ListPreference mMinFrequencyPref;
     private ListPreference mMaxFrequencyPref;
+
+    private class CurCPUThread extends Thread {
+        private boolean mInterrupt = false;
+
+        public void interrupt() {
+            mInterrupt = true;
+        }
+
+        @Override
+        public void run() {
+            try {
+                while (!mInterrupt) {
+                    sleep(500);
+                    final String curFreq = readOneLine(CURRENT_CPU_FILE);
+                    mCurCPUHandler.sendMessage(mCurCPUHandler.obtainMessage(0, curFreq));
+                }
+            } catch (InterruptedException e) {
+            }
+        }
+    };
+
+    private CurCPUThread mCurCPUThread = new CurCPUThread();
+
+    private Handler mCurCPUHandler = new Handler() {
+        public void handleMessage(Message msg) {
+            mCurFreq.setSummary(toMHz((String) msg.obj));
+        }
+    };
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -66,6 +102,16 @@ public class PerformanceSettings extends SettingsPreferenceFragment implements
         addPreferencesFromResource(R.xml.performance_settings);
 
         PreferenceScreen PrefScreen = getPreferenceScreen();
+
+        temp = readOneLine(CURRENT_KERNEL_FILE);
+
+        mCurKernel = (Preference) PrefScreen.findPreference(CURRENT_KERNEL);
+        mCurKernel.setSummary(temp);
+
+        temp = readOneLine(CURRENT_CPU_FILE);
+
+        mCurFreq = (Preference) PrefScreen.findPreference(CURRENT_CPU_SPEED);
+        mCurFreq.setSummary(toMHz(temp));
 
         temp = readOneLine(GOVERNOR);
 
@@ -102,6 +148,8 @@ public class PerformanceSettings extends SettingsPreferenceFragment implements
         mMaxFrequencyPref.setValue(temp);
         mMaxFrequencyPref.setSummary(String.format(mMaxFrequencyFormat, toMHz(temp)));
         mMaxFrequencyPref.setOnPreferenceChangeListener(this);
+
+        mCurCPUThread.start();
     }
 
     @Override
@@ -124,6 +172,16 @@ public class PerformanceSettings extends SettingsPreferenceFragment implements
         String ioscheduler = getIOScheduler();
         temp = ioscheduler;
         mIOPref.setSummary(String.format(mIOFormat, temp));
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        mCurCPUThread.interrupt();
+        try {
+            mCurCPUThread.join();
+        } catch (InterruptedException e) {
+        }
     }
 
     public boolean onPreferenceChange(Preference preference, Object newValue) {
