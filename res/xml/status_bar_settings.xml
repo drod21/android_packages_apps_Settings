@@ -10,8 +10,10 @@
 
         <CheckBoxPreference
             android:key="battery_percentages"
-            android:title="@string/battery_percent_title" >
-        </CheckBoxPreference>
+            android:title="@string/battery_percent_title"
+            android:summaryOn="@string/battery_percent_summary_on"
+            android:summaryOff="@string/battery_percent_summary_off"
+        />
 
     </PreferenceCategory>
 
@@ -28,6 +30,7 @@
             android:key="clock_am_pm"
             android:entries="@array/am_pm_entries"
             android:entryValues="@array/am_pm_values"
-            android:title="@string/am_pm_style_title" />
+            android:title="@string/am_pm_style_title"
+        />
     </PreferenceCategory>
 </PreferenceScreen>

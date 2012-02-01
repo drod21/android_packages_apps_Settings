@@ -12,11 +12,16 @@
 
         <CheckBoxPreference
             android:key="center_lockscreen"
-            android:title="@string/center_lockscreen_title" />
+            android:title="@string/center_lockscreen_title"
+            android:summaryOn="@string/center_lockscreen_summary_on"
+            android:summaryOff="@string/center_lockscreen_summary_off"
+        />
 
         <CheckBoxPreference
             android:key="volume_wake"
-            android:title="@string/volume_wake_title" />
+            android:title="@string/volume_wake_title"
+            android:summaryOn="@string/volume_wake_summary_on"
+            android:summaryOff="@string/volume_wake_summary_off" />
 
    <!--     <CheckBoxPreference
             android:key="crt_on_animation"
@@ -24,7 +29,10 @@
 
         <CheckBoxPreference
             android:key="crt_off_animation"
-            android:title="@string/crt_off_animation_title" />
+            android:title="@string/crt_off_animation_title"
+            android:summaryOn="@string/crt_off_animation_summary_on"
+            android:summaryOff="@string/crt_off_animation_summary_off"
+        />
 
         <Preference
             android:key="custom_carrier_label"

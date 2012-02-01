@@ -40,25 +40,29 @@
             android:title="@string/other_navigation_bar_settings">
         <CheckBoxPreference
             android:key="use_alt_icons"
-            android:title="@string/use_alt_icons_title" >
-        </CheckBoxPreference>
+            android:title="@string/use_alt_icons_title"
+            android:summaryOn="@string/use_alt_icons_summary_on"
+            android:summaryOff="@string/use_alt_icons_summary_off"
+        />
 
         <CheckBoxPreference
             android:key="key_button_glow"
             android:title="@string/key_button_glow_title" 
-            android:summary="@string/key_button_glow_summary">
-        </CheckBoxPreference>
+            android:summaryOn="@string/key_button_glow_summary_on"
+            android:summaryOff="@string/key_button_glow_summary_off"
+        />
 
         <CheckBoxPreference
             android:key="use_quick_dash"
             android:title="@string/use_quick_dash_title"
             android:summaryOn="@string/use_quick_dash_summary_on"
-            android:summaryOff="@string/use_quick_dash_summary_off">
-        </CheckBoxPreference>
+            android:summaryOff="@string/use_quick_dash_summary_off"
+        />
 
         <net.margaritov.preference.colorpicker.ColorPickerPreference
             android:key="navigation_button_color"
             android:title="@string/nav_button_color_title"
+            android:summary="@string/nav_button_color_summary"
             android:defaultValue="#FFFFFF"
             />
     </PreferenceCategory>

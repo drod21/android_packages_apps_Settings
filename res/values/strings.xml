@@ -3814,7 +3814,9 @@ found in the list of installed apps.</string>
     <string name="hex_hint">#FF000000</string>
     <string name="set">Set</string>
     <string name="ics_color">ICS</string>
-    <string name="battery_percent_title">Show battery percentages</string>
+    <string name="battery_percent_title">Battery percentages</string>
+    <string name="battery_percent_summary_on">Battery percentage will be shown in icon</string>
+    <string name="battery_percent_summary_off">Stock battery icon will be used</string>  
     <string name="clock_style_title">Clock style</string>
     <string name="am_pm_style_title">AM PM style</string>
     <string name="nav_button_slot_settings_title">Navigation slot settings</string>
@@ -3824,13 +3826,17 @@ found in the list of installed apps.</string>
     <string name="nav_buttons_slot_four_title">Slot four</string>
     <string name="nav_buttons_slot_five_title">Slot five</string>
     <string name="other_navigation_bar_settings">Other settings</string>
-    <string name="use_alt_icons_title">Use alternate icons</string>
+    <string name="use_alt_icons_title">Alt nav buttons</string>
+    <string name="use_alt_icons_summary_on">Alternate nav button images will be shown</string>
+    <string name="use_alt_icons_summary_off">Stock nav button images will be shown</string>
     <string name="key_button_glow_title">Use fast button glow</string>
-    <string name="key_button_glow_summary">Needs reboot to take effect</string>
+    <string name="key_button_glow_summary_on">Nav button touch glow will be set to fast</string>
+    <string name="key_button_glow_summary_off">Stock nav button touch glow will be used</string>
     <string name="use_quick_dash_title">Use QuickDash</string>
     <string name="use_quick_dash_summary_on">QuickDash will be launched with long-press home</string>
     <string name="use_quick_dash_summary_off">Recent apps will be launched with long-press home</string>
     <string name="nav_button_color_title">Navigation button color</string>
+    <string name="nav_button_color_summary">Touch to select nav button color</string>
 
     <string name="cpu_settings_title">CPU settings</string>
     <string name="cpu_title">CPU settings</string>
@@ -3859,9 +3865,15 @@ found in the list of installed apps.</string>
     <string name="saved">mV saved</string>
     <string name="lockscreen_target_title">Lockscreen targets</string>
     <string name="center_lockscreen_title">Centered lockscreen</string>
+    <string name="center_lockscreen_summary_on">Clock on lockscreen will be centered</string>
+    <string name="center_lockscreen_summary_off">Stock lockscreen clock layout will be used</string>
     <string name="volume_wake_title">Volume wake</string>
+    <string name="volume_wake_summary_on">Pressing volume buttons will wake phone</string>
+    <string name="volume_wake_summary_off">Pressing volume buttons will not wake phone</string>
     <string name="crt_on_animation_title">CRT screen on anim</string>
     <string name="crt_off_animation_title">CRT screen off anim</string>
+    <string name="crt_off_animation_summary_on">CRT animation will be used when locking phone</string>
+    <string name="crt_off_animation_summary_off">CRT animation will not be used when locking phone</string>
     <string name="custom_carrier_label_title">Custom carrier label</string>
     <string name="gamma_tuning_title">Color gamma tuning</string>
     <string name="gamma_tuning_summary">Calibrate gamma color correction</string>
