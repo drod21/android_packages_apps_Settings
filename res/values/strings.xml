@@ -3834,6 +3834,9 @@ found in the list of installed apps.</string>
 
     <string name="cpu_settings_title">CPU settings</string>
     <string name="cpu_title">CPU settings</string>
+    <string name="cpu_information_title">CPU Information</string>
+    <string name="current_kernel_title">Current kernel info</string>
+    <string name="current_cpu_speed_title">Current CPU speed</string>
     <string name="advanced_settings_voltage">Advanced settings</string>
     <string name="cpu_summary">Governor and clock settings</string>
     <string name="cpu_governors_title">Available governors</string>
