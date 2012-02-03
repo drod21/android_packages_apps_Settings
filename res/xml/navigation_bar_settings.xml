@@ -63,7 +63,7 @@
             android:key="navigation_button_color"
             android:title="@string/nav_button_color_title"
             android:summary="@string/nav_button_color_summary"
-            android:defaultValue="#FFFFFF"
+            android:defaultValue="#FFA7A7A7"
             />
     </PreferenceCategory>
 </PreferenceScreen>

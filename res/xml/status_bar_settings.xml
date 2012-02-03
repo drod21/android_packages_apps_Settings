@@ -9,10 +9,19 @@
             android:title="General settings">
 
         <CheckBoxPreference
+            android:key="hide_battery"
+            android:title="@string/hide_battery_title"
+            android:summaryOn="@string/hide_battery_summary_on"
+            android:summaryOff="@string/hide_battery_summary_off"
+            android:disableDependentsState="true"
+        />
+
+        <CheckBoxPreference
             android:key="battery_percentages"
             android:title="@string/battery_percent_title"
             android:summaryOn="@string/battery_percent_summary_on"
             android:summaryOff="@string/battery_percent_summary_off"
+            android:dependency="hide_battery"
         />
 
     </PreferenceCategory>

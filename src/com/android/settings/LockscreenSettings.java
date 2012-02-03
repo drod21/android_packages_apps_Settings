@@ -22,12 +22,14 @@ public class LockscreenSettings extends SettingsPreferenceFragment implements On
     private static final String LOCKSCREEN_TARGETS = "lockscreen_targets";
     private static final String CENTER_LOCKSCREEN = "center_lockscreen";
     private static final String VOLUME_WAKE = "volume_wake";
+    private static final String LOCKSCREEN_ALWAYS_BATTERY = "lockscreen_always_battery";
     private static final String CUSTOM_CARRIER_LABEL = "custom_carrier_label";
   //  private static final String CRT_ON_ANIMATION = "crt_on_animation";
     private static final String CRT_OFF_ANIMATION = "crt_off_animation";
     private ListPreference mLockscreenTarget;
     private CheckBoxPreference mCenteredLockscreen;
     private CheckBoxPreference mVolumeWake;
+    private CheckBoxPreference mAlwaysShowBattInfo;
    // private CheckBoxPreference mCrtOnAnimation;
     private CheckBoxPreference mCrtOffAnimation;
     private Preference mCustomLabel;
@@ -53,6 +55,10 @@ public class LockscreenSettings extends SettingsPreferenceFragment implements On
         mVolumeWake.setChecked(Settings.System.getInt(getContentResolver(),
                 Settings.System.VOLUME_WAKE, 0) == 1);
 
+        mAlwaysShowBattInfo = (CheckBoxPreference) prefSet.findPreference(LOCKSCREEN_ALWAYS_BATTERY);
+        mAlwaysShowBattInfo.setChecked(Settings.System.getInt(getContentResolver(),
+                Settings.System.LOCKSCREEN_ALWAYS_BATTERY, 0) == 1);
+
       //  mCrtOnAnimation = (CheckBoxPreference) prefSet.findPreference(CRT_ON_ANIMATION);
       //  mCrtOnAnimation.setChecked(Settings.System.getInt(getContentResolver(),
       //          Settings.System.CRT_ON_ANIMATION, 0) == 1);
@@ -76,6 +82,11 @@ public class LockscreenSettings extends SettingsPreferenceFragment implements On
             value = mVolumeWake.isChecked();
             Settings.System.putInt(getContentResolver(),
                 Settings.System.VOLUME_WAKE, value ? 1 : 0);
+            return true;
+        } else if (preference == mAlwaysShowBattInfo) {
+            value = mAlwaysShowBattInfo.isChecked();
+            Settings.System.putInt(getContentResolver(),
+                Settings.System.LOCKSCREEN_ALWAYS_BATTERY, value ? 1 : 0);
             return true;
        // } else if (preference == mCrtOnAnimation) {
        //     value = mCrtOnAnimation.isChecked();

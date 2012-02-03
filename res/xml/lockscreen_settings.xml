@@ -23,6 +23,12 @@
             android:summaryOn="@string/volume_wake_summary_on"
             android:summaryOff="@string/volume_wake_summary_off" />
 
+        <CheckBoxPreference
+            android:key="lockscreen_always_battery"
+            android:title="@string/lockscreen_always_battery_title"
+            android:summaryOn="@string/lockscreen_always_battery_summary_on"
+            android:summaryOff="@string/lockscreen_always_battery_summary_off" />
+
    <!--     <CheckBoxPreference
             android:key="crt_on_animation"
             android:title="@string/crt_on_animation_title" /> -->
