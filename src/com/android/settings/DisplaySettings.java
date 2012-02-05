@@ -58,10 +58,10 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
     private static final String ROTATION_180 = "rotation_180";
     private static final String ROTATION_270 = "rotation_270";
 
-    private static final int ROTATION_0_MODE = 8;
-    private static final int ROTATION_90_MODE = 1;
-    private static final int ROTATION_180_MODE = 2;
-    private static final int ROTATION_270_MODE = 4;
+    private static final int ROTATION_0_MODE = 1;
+    private static final int ROTATION_90_MODE = 2;
+    private static final int ROTATION_180_MODE = 4;
+    private static final int ROTATION_270_MODE = 8;
 
     private CheckBoxPreference mAccelerometer;
     private ListPreference mFontSizePref;
@@ -97,7 +97,7 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
         mRotation180Pref = (CheckBoxPreference) findPreference(ROTATION_180);
         mRotation270Pref = (CheckBoxPreference) findPreference(ROTATION_270);
         int mode = Settings.System.getInt(getContentResolver(),
-                Settings.System.ACCELEROMETER_ROTATION_MODE,
+                Settings.System.ACCELEROMETER_ROTATION_ANGLES,
                 ROTATION_0_MODE|ROTATION_90_MODE|ROTATION_270_MODE);
         mRotation0Pref.setChecked((mode & ROTATION_0_MODE) != 0);
         mRotation90Pref.setChecked((mode & ROTATION_90_MODE) != 0);
@@ -284,7 +284,7 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
                 mRotation0Pref.setChecked(true);
             }
             Settings.System.putInt(getContentResolver(),
-                Settings.System.ACCELEROMETER_ROTATION_MODE, mode);
+                Settings.System.ACCELEROMETER_ROTATION_ANGLES, mode);
             return true;
         } else if (preference == mNotificationPulse) {
             boolean value = mNotificationPulse.isChecked();
