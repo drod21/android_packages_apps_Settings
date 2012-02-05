@@ -30,7 +30,25 @@
 
         <CheckBoxPreference
             android:key="accelerometer"
-            android:title="@string/accelerometer_title"/>
+            android:title="@string/accelerometer_title"
+            android:disableDependentsState="false"/>
+
+        <CheckBoxPreference
+            android:key="rotation_0"
+            android:title="@string/rotation_0_title"
+            android:dependency="accelerometer"/>
+        <CheckBoxPreference
+            android:key="rotation_90"
+            android:title="@string/rotation_90_title"
+            android:dependency="accelerometer"/>
+        <CheckBoxPreference
+            android:key="rotation_180"
+            android:title="@string/rotation_180_title"
+            android:dependency="accelerometer"/>
+        <CheckBoxPreference
+            android:key="rotation_270"
+            android:title="@string/rotation_270_title"
+            android:dependency="accelerometer"/>
 
         <ListPreference
                 android:key="screen_timeout"

@@ -1608,6 +1608,10 @@
     <string name="accelerometer_summary_off" product="tablet">Switch orientation automatically when rotating tablet</string>
     <!-- Sound & display settings screen, accelerometer-based rotation summary text when check box is clear -->
     <string name="accelerometer_summary_off" product="default">Switch orientation automatically when rotating phone</string>
+    <string name="rotation_0_title">0 degrees</string>
+    <string name="rotation_90_title">90 degrees</string>
+    <string name="rotation_180_title">180 degrees</string>
+    <string name="rotation_270_title">270 degrees</string>
     <!-- Sound & display settings screen, setting option name to change brightness -->
     <string name="brightness">Brightness</string>
     <!-- Sound & display settings screen, setting option summary to change brightness -->

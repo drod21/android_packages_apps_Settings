@@ -53,9 +53,23 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
     private static final String KEY_FONT_SIZE = "font_size";
     private static final String KEY_NOTIFICATION_PULSE = "notification_pulse";
 
+    private static final String ROTATION_0 = "rotation_0";
+    private static final String ROTATION_90 = "rotation_90";
+    private static final String ROTATION_180 = "rotation_180";
+    private static final String ROTATION_270 = "rotation_270";
+
+    private static final int ROTATION_0_MODE = 8;
+    private static final int ROTATION_90_MODE = 1;
+    private static final int ROTATION_180_MODE = 2;
+    private static final int ROTATION_270_MODE = 4;
+
     private CheckBoxPreference mAccelerometer;
     private ListPreference mFontSizePref;
     private CheckBoxPreference mNotificationPulse;
+    private CheckBoxPreference mRotation0Pref;
+    private CheckBoxPreference mRotation90Pref;
+    private CheckBoxPreference mRotation180Pref;
+    private CheckBoxPreference mRotation270Pref;
 
     private final Configuration mCurConfig = new Configuration();
     
@@ -77,6 +91,18 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
 
         mAccelerometer = (CheckBoxPreference) findPreference(KEY_ACCELEROMETER);
         mAccelerometer.setPersistent(false);
+
+        mRotation0Pref = (CheckBoxPreference) findPreference(ROTATION_0);
+        mRotation90Pref = (CheckBoxPreference) findPreference(ROTATION_90);
+        mRotation180Pref = (CheckBoxPreference) findPreference(ROTATION_180);
+        mRotation270Pref = (CheckBoxPreference) findPreference(ROTATION_270);
+        int mode = Settings.System.getInt(getContentResolver(),
+                Settings.System.ACCELEROMETER_ROTATION_MODE,
+                ROTATION_0_MODE|ROTATION_90_MODE|ROTATION_270_MODE);
+        mRotation0Pref.setChecked((mode & ROTATION_0_MODE) != 0);
+        mRotation90Pref.setChecked((mode & ROTATION_90_MODE) != 0);
+        mRotation180Pref.setChecked((mode & ROTATION_180_MODE) != 0);
+        mRotation270Pref.setChecked((mode & ROTATION_270_MODE) != 0);
 
         mScreenTimeoutPreference = (ListPreference) findPreference(KEY_SCREEN_TIMEOUT);
         final long currentTimeout = Settings.System.getLong(resolver, SCREEN_OFF_TIMEOUT,
@@ -244,6 +270,22 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
             } catch (RemoteException exc) {
                 Log.w(TAG, "Unable to save auto-rotate setting");
             }
+        } else if (preference == mRotation0Pref ||
+                   preference == mRotation90Pref ||
+                   preference == mRotation180Pref ||
+                   preference == mRotation270Pref) {
+            int mode = 0;
+            if (mRotation0Pref.isChecked()) mode |= ROTATION_0_MODE;
+            if (mRotation90Pref.isChecked()) mode |= ROTATION_90_MODE;
+            if (mRotation180Pref.isChecked()) mode |= ROTATION_180_MODE;
+            if (mRotation270Pref.isChecked()) mode |= ROTATION_270_MODE;
+            if (mode == 0) {
+                mode |= ROTATION_0_MODE;
+                mRotation0Pref.setChecked(true);
+            }
+            Settings.System.putInt(getContentResolver(),
+                Settings.System.ACCELEROMETER_ROTATION_MODE, mode);
+            return true;
         } else if (preference == mNotificationPulse) {
             boolean value = mNotificationPulse.isChecked();
             Settings.System.putInt(getContentResolver(), Settings.System.NOTIFICATION_LIGHT_PULSE,
