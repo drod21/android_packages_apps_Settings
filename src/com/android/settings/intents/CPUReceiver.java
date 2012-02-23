@@ -57,13 +57,14 @@ public class CPUReceiver extends BroadcastReceiver {
         String governor = prefs.getString(PerformanceSettings.GOV_PREFERENCE, null);
         String minFrequency = prefs.getString(PerformanceSettings.MIN_FREQ_PREFERENCE, null);
         String maxFrequency = prefs.getString(PerformanceSettings.MAX_FREQ_PREFERENCE, null);
+        String ioPreference = prefs.getString(PerformanceSettings.IO_PREFERENCE, null);
         String availableFrequenciesLine = PerformanceSettings.readOneLine(PerformanceSettings.FREQ_LIST_FILE);
         String availableGovernorsLine = PerformanceSettings.readOneLine(PerformanceSettings.GOVERNORS_LIST_FILE);
         boolean noSettings = ((availableGovernorsLine == null) || (governor == null)) && 
                              ((availableFrequenciesLine == null) || ((minFrequency == null) && (maxFrequency == null)));
         List<String> frequencies = null;
         List<String> governors = null;
-        
+
         if (noSettings) {
             Log.d(TAG, "No settings saved. Nothing to restore.");
         } else {
@@ -82,6 +83,11 @@ public class CPUReceiver extends BroadcastReceiver {
             if (minFrequency != null && frequencies != null && frequencies.contains(minFrequency)) {
                 PerformanceSettings.writeOneLine(PerformanceSettings.FREQ_MIN_FILE, minFrequency);
             }
+            // This is optimistic that this
+            // is always going to exist..
+            // haven't encountered any problems
+            // in testing..
+            PerformanceSettings.writeOneLine(PerformanceSettings.IO_SCHEDULER, ioPreference);
             Log.d(TAG, "CPU settings restored.");
         }
     }

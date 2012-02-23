@@ -1417,7 +1417,7 @@
         </receiver>
         <receiver android:name=".intents.CPUReceiver" android:enabled="true">
             <intent-filter>
-                <action android:name="android.intent.action.BOOT_COMPLETED" />
+                <action android:name="android.intent.action.MEDIA_MOUNTED" />
                 <data android:scheme="file" />
             </intent-filter>
         </receiver>
