@@ -3830,6 +3830,12 @@ found in the list of installed apps.</string>
     <string name="hide_battery_title">Hide battery</string>
     <string name="hide_battery_summary_on">Battery icon will not be shown in the status bar</string>
     <string name="hide_battery_summary_off">Battery icon will show as normal in the status bar</string>
+    <string name="battery_bar_category_title">Battery bar settings</string>
+    <string name="battery_bar_title">Battery bar location</string>
+    <string name="battery_bar_style_title">Battery bar style</string>
+    <string name="battery_bar_animate_title">Battery bar animation</string>
+    <string name="battery_bar_color_title">Battery bar color</string>
+    <string name="battery_bar_thickness_title">Battery bar thickness</string>
     <string name="clock_style_title">Clock style</string>
     <string name="am_pm_style_title">AM PM style</string>
     <string name="nav_button_slot_settings_title">Navigation slot settings</string>
