@@ -41,6 +41,10 @@
             android:key="sob_preference"
             android:title="@string/cpu_set_on_boot"
             android:summary="@string/cpu_set_on_boot_summary" />
+    <CheckBoxPreference
+	    android:key="force_fast_charge"
+	    android:title="@string/force_fast_charge"
+	    android:summary="Enable or Disable Fast Charge" />
     </PreferenceCategory>
     <PreferenceCategory android:title="@string/advanced_settings_voltage"
             android:key="advanced_settings">

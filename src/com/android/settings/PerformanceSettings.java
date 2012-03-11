@@ -31,7 +31,9 @@ public class PerformanceSettings extends SettingsPreferenceFragment implements
     public static final String FREQ_LIST_FILE = "/sys/devices/system/cpu/cpu0/cpufreq/scaling_available_frequencies";
     public static final String FREQ_MAX_FILE = "/sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq";
     public static final String FREQ_MIN_FILE = "/sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq";
+    public static final String FORCE_FAST_CHARGE = "/sys/kernel/fast_charge/force_fast_charge";
     public static final String SOB_PREFERENCE = "sob_preference";
+
 
     private static final String TAG = "PerformanceSettings";
 

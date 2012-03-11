@@ -3874,6 +3874,7 @@ found in the list of installed apps.</string>
     <string name="cpu_max_freq_summary">Maximum CPU frequency\nCurrently: %s</string>
     <string name="cpu_set_on_boot">Set on boot</string>
     <string name="cpu_set_on_boot_summary">Restore CPU settings on boot</string>
+    <string name="force_fast_charge">Enable Fast Charge</string>
 
     <string name="voltage_settings">Voltage settings</string>
     <string name="voltage_settings_summary">Fine tune kernel voltage settings</string>
