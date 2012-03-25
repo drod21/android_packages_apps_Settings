@@ -7,9 +7,13 @@ import android.preference.ListPreference;
 import android.preference.Preference;
 import android.preference.PreferenceActivity;
 import android.preference.PreferenceScreen;
+import android.preference.Preference.OnPreferenceClickListener;
 import android.util.Log;
+import android.preference.CheckBoxPreference;
 
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -31,7 +35,8 @@ public class PerformanceSettings extends SettingsPreferenceFragment implements
     public static final String FREQ_LIST_FILE = "/sys/devices/system/cpu/cpu0/cpufreq/scaling_available_frequencies";
     public static final String FREQ_MAX_FILE = "/sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq";
     public static final String FREQ_MIN_FILE = "/sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq";
-    public static final String FORCE_FAST_CHARGE = "/sys/kernel/fast_charge/force_fast_charge";
+    public static final String FAST_CHARGE_DIR = "/sys/kernel/fast_charge";
+	public static final String FAST_CHARGE_FILE = "force_fast_charge";
     public static final String SOB_PREFERENCE = "sob_preference";
 
 
@@ -41,13 +46,14 @@ public class PerformanceSettings extends SettingsPreferenceFragment implements
     private String mIOFormat;
     private String mMinFrequencyFormat;
     private String mMaxFrequencyFormat;
-
+	
     private Preference mCurKernel;
     private Preference mCurFreq;
     private ListPreference mGovernorPref;
     private ListPreference mIOPref;
     private ListPreference mMinFrequencyPref;
     private ListPreference mMaxFrequencyPref;
+    private CheckBoxPreference mFastCharge;
 
     private class CurCPUThread extends Thread {
         private boolean mInterrupt = false;
@@ -77,7 +83,7 @@ public class PerformanceSettings extends SettingsPreferenceFragment implements
         }
     };
 
-    @Override
+	@Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
@@ -150,9 +156,52 @@ public class PerformanceSettings extends SettingsPreferenceFragment implements
         mMaxFrequencyPref.setValue(temp);
         mMaxFrequencyPref.setSummary(String.format(mMaxFrequencyFormat, toMHz(temp)));
         mMaxFrequencyPref.setOnPreferenceChangeListener(this);
+		
+		mFastCharge = (CheckBoxPreference) PrefScreen.findPreference("force_fast_charge");
+		mFastCharge.setOnPreferenceClickListener(new OnPreferenceClickListener(){
+
+		public boolean isFastChargeOn(){
+		    	try{
+		    		File fastcharge = new File(FAST_CHARGE_DIR,FAST_CHARGE_FILE);
+		    		FileReader reader = new FileReader(fastcharge);
+		    		BufferedReader breader = new BufferedReader(reader);
+		    		if (breader.readLine() == "1") 
+		    			return true;
+		    		else
+		    			return false;
+		    	} catch (IOException e) {
+		    		Log.e("FCharge","Couldn't read fast_charge file");
+		    		return false;
+		    	}
+		    }
+		    
+		    public void updateFastCharge(boolean on){
+		    	try{
+		    		File fastcharge = new File(FAST_CHARGE_DIR,FAST_CHARGE_FILE);
+		    		FileWriter fwriter = new FileWriter(fastcharge);
+		    		BufferedWriter bwriter = new BufferedWriter(fwriter);
+		    		if (on) 
+		    			bwriter.write("1");
+		    		else
+		    			bwriter.write("0");
+		    		bwriter.close();
+		    	} catch (IOException e) {
+		    		Log.e("FCharge","Couldn't write fast_charge file");
+		    	}	
+		    	
+		    }
+
+			@Override
+			public boolean onPreferenceClick(Preference preference) {
+				// TODO Auto-generated method stub
+				return false;
+			}
+
+			});
 
         mCurCPUThread.start();
-    }
+			
+		};
 
     @Override
     public void onResume() {
@@ -220,7 +269,7 @@ public class PerformanceSettings extends SettingsPreferenceFragment implements
         return false;
     }
 
-    public static String readOneLine(String fname) {
+	public static String readOneLine(String fname) {
         BufferedReader br;
         String line = null;
 
@@ -295,4 +344,3 @@ public class PerformanceSettings extends SettingsPreferenceFragment implements
         return new StringBuilder().append(Integer.valueOf(mhzString) / 1000).append(" MHz").toString();
     }
 }
-
