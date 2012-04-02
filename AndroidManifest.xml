@@ -1392,5 +1392,22 @@
             <meta-data android:name="android.appwidget.provider" android:resource="@xml/appwidget_info" />
         </receiver>
 
+        <receiver android:name=".intents.CPUReceiver" android:enabled="true">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+                <data android:scheme="file" />
+            </intent-filter>
+        </receiver>
+        <receiver android:enabled="true" android:name=".service.BootReceiver">
+			<intent-filter>
+				<action android:name="android.intent.action.BOOT_COMPLETED" />
+			</intent-filter>
+		</receiver>
+        <receiver android:name=".Startup" >
+            <intent-filter android:priority="100" >
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+            </intent-filter>
+        </receiver>
+		<service android:name=".service.BootService" />
     </application>
 </manifest>
