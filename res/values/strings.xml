@@ -3785,9 +3785,7 @@ found in the list of installed apps.</string>
     "system_update_settings_list_item_title" in this project. [CHAR LIMIT=25] -->
     <string name="additional_system_update_settings_list_item_title">Additional system updates</string>
 
-<<<<<<< HEAD
-=======
-    <!-- Category names for RootzBoat Settings -->
+    <!-- Strings for rubiX settings -->
     <string name="performance_prefs_title">Performance</string>
     <string name="status_bar_prefs_title">Status Bar</string>
     <string name="navigation_bar_prefs_title">Navigation Bar</string>
@@ -3802,8 +3800,6 @@ found in the list of installed apps.</string>
     <string name="pulse_duration_title">Pulse Duration</string>
     <!-- Pulse notificaton light color -->
     <string name="pulse_frequency_title">Pulse Frequency</string>
-
-    <!-- Strings for rubiX settings -->
     <string name="gamma_tuning_title">Color gamma tuning</string>
     <string name="gamma_tuning_summary">Calibrate gamma color correction</string>
     <string name="color_red_title">Red</string>
