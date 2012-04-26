@@ -182,4 +182,13 @@
         android:icon="@drawable/ic_settings_about"
         android:title="@string/about_settings" />
 
+    <!-- Advanced Settings -->
+    <header android:title="@string/header_category_advanced_settings" />
+
+    <header
+        android:id="@+id/rootz_settings"
+        android:fragment="com.android.settings.RootzSettings"
+        android:icon="@drawable/ic_appwidget_settings_rootzboat_full_holo"
+        android:title="@string/rootz_settings_title" />
+
 </preference-headers>
