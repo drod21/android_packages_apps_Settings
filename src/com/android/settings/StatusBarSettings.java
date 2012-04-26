@@ -13,10 +13,12 @@ import android.provider.Settings;
 public class StatusBarSettings extends SettingsPreferenceFragment implements OnPreferenceChangeListener {
 
     private static final String BATTERY_PERCENTAGES = "battery_percentages";
+    private static final String HIDE_BATTERY = "hide_battery";
     private static final String PREF_CLOCK_DISPLAY_STYLE = "clock_am_pm";
     private static final String PREF_CLOCK_STYLE = "clock_style";
 
     private CheckBoxPreference mBatteryPercentages;
+    private CheckBoxPreference mHideBattery;
     private ListPreference mAmPmStyle;
     private ListPreference mClockStyle;
 
@@ -29,6 +31,9 @@ public class StatusBarSettings extends SettingsPreferenceFragment implements OnP
         mBatteryPercentages = (CheckBoxPreference) prefSet.findPreference(BATTERY_PERCENTAGES);
         mBatteryPercentages.setChecked(Settings.System.getInt(getContentResolver(),
             Settings.System.BATTERY_PERCENTAGES, 0) == 1);
+        mHideBattery = (CheckBoxPreference) prefSet.findPreference(HIDE_BATTERY);
+        mHideBattery.setChecked(Settings.System.getInt(getContentResolver(),
+            Settings.System.HIDE_BATTERY, 0) == 1);
         mClockStyle = (ListPreference) prefSet.findPreference(PREF_CLOCK_STYLE);
         mAmPmStyle = (ListPreference) prefSet.findPreference(PREF_CLOCK_DISPLAY_STYLE);
 
@@ -49,6 +54,11 @@ public class StatusBarSettings extends SettingsPreferenceFragment implements OnP
             value = mBatteryPercentages.isChecked();
             Settings.System.putInt(getContentResolver(),
                 Settings.System.BATTERY_PERCENTAGES, value ? 1 : 0);
+            return true;
+        } else if (preference == mHideBattery) {
+            value = mHideBattery.isChecked();
+            Settings.System.putInt(getContentResolver(),
+                Settings.System.HIDE_BATTERY, value ? 1 : 0);
             return true;
         }
         return false;

@@ -3815,6 +3815,9 @@ found in the list of installed apps.</string>
     <string name="battery_percent_title">Battery percentages</string>
     <string name="battery_percent_summary_on">Battery percentage will be shown in icon</string>
     <string name="battery_percent_summary_off">Stock battery icon will be used</string>  
+    <string name="hide_battery_title">Hide battery</string>
+    <string name="hide_battery_summary_on">Battery icon will not be shown in the status bar</string>
+    <string name="hide_battery_summary_off">Battery icon will show as normal in the status bar</string>
     <string name="clock_style_title">Clock style</string>
     <string name="am_pm_style_title">AM PM style</string>
 
@@ -3863,5 +3866,8 @@ found in the list of installed apps.</string>
     <string name="saved">mV saved</string>
     <string name="lockscreen_target_title">Lockscreen targets</string>
     <string name="center_lockscreen_title">Centered lockscreen</string>
+    <string name="lockscreen_always_battery_title">Lockscreen battery percentage</string>
+    <string name="lockscreen_always_battery_summary_on">Battery percentage will always show on lockscreen</string>
+    <string name="lockscreen_always_battery_summary_off">Battery percentage will only show when low or charging</string>
     <string name="custom_carrier_label_title">Custom carrier label</string>
 </resources>
