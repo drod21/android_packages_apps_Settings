@@ -3803,12 +3803,17 @@ found in the list of installed apps.</string>
     <string name="pulse_frequency_title">Pulse Frequency</string>
 
     <!-- Strings for RootzBoat settings -->
+    <string name="dialog_color_picker">Color picker</string>
+    <string name="press_color_to_apply">Press on color to apply</string>
+    <string name="arrow_right">→</string> 
+    <string name="arrow_down">↓</string>
     <string name="battery_percent_title">Show battery percentages</string>
     <string name="clock_style_title">Clock style</string>
     <string name="am_pm_style_title">AM PM style</string>
 
     <string name="show_menu_button_title">Show menu button in nav bar</string>
     <string name="show_search_button_title">Show search button in nav bar</string>
+    <string name="nav_button_color_title">Navigation button color</string>
 
     <string name="cpu_settings_title">CPU settings</string>
     <string name="cpu_title">CPU settings</string>

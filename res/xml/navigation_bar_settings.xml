@@ -13,4 +13,10 @@
             android:key="show_search_button"
             android:title="@string/show_search_button_title" >
         </CheckBoxPreference>
+
+        <net.margaritov.preference.colorpicker.ColorPickerPreference
+            android:key="navigation_button_color"
+            android:title="@string/nav_button_color_title"
+            android:defaultValue="#FFFFFF"
+            />
 </PreferenceScreen>

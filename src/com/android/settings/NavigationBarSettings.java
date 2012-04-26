@@ -1,6 +1,7 @@
 package com.android.settings;
 import com.android.settings.R;
 
+import net.margaritov.preference.colorpicker.ColorPickerPreference;
 import android.os.Bundle;
 import android.preference.CheckBoxPreference;
 import android.preference.Preference;
@@ -8,6 +9,7 @@ import android.preference.PreferenceActivity;
 import android.preference.PreferenceScreen;
 import android.preference.Preference.OnPreferenceChangeListener;
 import android.provider.Settings;
+import android.provider.Settings.SettingNotFoundException;
 
 public class NavigationBarSettings extends SettingsPreferenceFragment implements OnPreferenceChangeListener {
 
@@ -15,6 +17,7 @@ public class NavigationBarSettings extends SettingsPreferenceFragment implements
     private static final String SHOW_SEARCH_BUTTON = "show_search_button";
     private CheckBoxPreference mShowMenuButton;
     private CheckBoxPreference mShowSearchButton;
+    private ColorPickerPreference mNavButtonColor;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -29,6 +32,9 @@ public class NavigationBarSettings extends SettingsPreferenceFragment implements
         mShowSearchButton = (CheckBoxPreference) prefSet.findPreference(SHOW_SEARCH_BUTTON);
         mShowSearchButton.setChecked(Settings.System.getInt(getContentResolver(),
             Settings.System.SHOW_SEARCH_BUTTON, 0) == 1);
+
+        mNavButtonColor = (ColorPickerPreference) prefSet.findPreference(NAVIGATION_BUTTON_COLOR);
+        mNavButtonColor.setOnPreferenceChangeListener(this);
     }
 
     public boolean onPreferenceTreeClick(PreferenceScreen preferenceScreen, Preference preference) {
@@ -47,7 +53,16 @@ public class NavigationBarSettings extends SettingsPreferenceFragment implements
         return false;
     }
 
+    @Override
     public boolean onPreferenceChange(Preference preference, Object newValue) {
+        if (preference == mNavButtonColor) {
+            String hex = ColorPickerPreference.convertToARGB(Integer.valueOf(String
+                .valueOf(newValue)));
+            int intHex = ColorPickerPreference.convertToColorInt(hex);
+            Settings.System.putInt(getActivity().getContentResolver(),
+                    Settings.System.NAVIGATION_BUTTON_COLOR, intHex);
+            return true;
+        }
         return false;
     }
 }
