@@ -3795,6 +3795,9 @@ found in the list of installed apps.</string>
     <string name="notification_pulse_settings">Pulse Notifications</string>
     <string name="lockscreen_prefs_title">Lockscreen</string>
 
+    <!-- NavigationBar Settings -->
+    <string name="persist_menu_title">Always show menu button</string>
+
     <!-- StatusBar Settings -->
     <string name="battery_percent_title">Show battery percentages</string>
 

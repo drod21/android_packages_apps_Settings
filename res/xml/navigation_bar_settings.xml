@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    android:title="@string/navigation_bar_prefs_title"
+    android:key="navigation_bar_prefs">
+
+        <CheckBoxPreference
+            android:key="persist_menu"
+            android:title="@string/persist_menu_title" >
+        </CheckBoxPreference>
+</PreferenceScreen>
