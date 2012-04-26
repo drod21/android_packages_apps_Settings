@@ -3788,11 +3788,15 @@ found in the list of installed apps.</string>
     <string name="additional_system_update_settings_list_item_title">Additional system updates</string>
 
     <!-- Strings for rubiX settings -->
+    <string name="rootz_settings_title">Rubix Settings</string>
     <string name="performance_prefs_title">Performance</string>
     <string name="status_bar_prefs_title">Status Bar</string>
     <string name="navigation_bar_prefs_title">Navigation Bar</string>
     <string name="notification_pulse_settings">Pulse Notifications</string>
     <string name="lockscreen_prefs_title">Lockscreen</string>
+
+    <!-- StatusBar Settings -->
+    <string name="battery_percent_title">Show battery percentages</string>
 
     <!-- pulse notifications -->
     <string name="notification_category_pulse_title">Pulse Notification</string>
