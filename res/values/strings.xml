@@ -3813,6 +3813,8 @@ found in the list of installed apps.</string>
 
     <string name="show_menu_button_title">Show menu button in nav bar</string>
     <string name="show_search_button_title">Show search button in nav bar</string>
+    <string name="nav_buttons_slot_one_title">Slot one navigation button</string>
+    <string name="nav_buttons_slot_five_title">Slot five navigation button</string>
     <string name="nav_button_color_title">Navigation button color</string>
 
     <string name="cpu_settings_title">CPU settings</string>

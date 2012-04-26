@@ -817,4 +817,19 @@
 		<item>Show - center</item>
 	</string-array>
 
+    <string-array name="nav_button_values">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+    </string-array>
+    <string-array name="nav_button_entries">
+        <item>None</item>
+        <item>Menu</item>
+        <item>Search</item>
+        <item>Media previous</item>
+        <item>Media next</item>
+    </string-array>
+
 </resources>

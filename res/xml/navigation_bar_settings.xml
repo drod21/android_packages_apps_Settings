@@ -4,15 +4,17 @@
     android:title="@string/navigation_bar_prefs_title"
     android:key="navigation_bar_prefs">
 
-        <CheckBoxPreference
-            android:key="show_menu_button"
-            android:title="@string/show_menu_button_title" >
-        </CheckBoxPreference>
+        <ListPreference
+            android:key="nav_buttons_slot_one"
+            android:title="@string/nav_buttons_slot_one_title"
+            android:entries="@array/nav_button_entries"
+            android:entryValues="@array/nav_button_values"/>
 
-        <CheckBoxPreference
-            android:key="show_search_button"
-            android:title="@string/show_search_button_title" >
-        </CheckBoxPreference>
+        <ListPreference
+            android:key="nav_buttons_slot_five"
+            android:title="@string/nav_buttons_slot_five_title"
+            android:entries="@array/nav_button_entries"
+            android:entryValues="@array/nav_button_values"/>
 
         <net.margaritov.preference.colorpicker.ColorPickerPreference
             android:key="navigation_button_color"
