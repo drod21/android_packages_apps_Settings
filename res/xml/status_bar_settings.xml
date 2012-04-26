@@ -8,4 +8,5 @@
             android:key="battery_percentages"
             android:title="@string/battery_percent_title" >
         </CheckBoxPreference>
+
 </PreferenceScreen>
