@@ -23,6 +23,12 @@
             android:summaryOn="@string/lockscreen_always_battery_summary_on"
             android:summaryOff="@string/lockscreen_always_battery_summary_off" />
 
+	<CheckBoxPreference
+            android:key="lockscreen_text"
+            android:title="@string/lockscreen_text_title"
+            android:summary="@string/lockscreen_text_summary" >
+        </CheckBoxPreference>
+
         <Preference
             android:key="custom_carrier_label"
             android:title="@string/custom_carrier_label_title" />

@@ -23,9 +23,11 @@ public class LockscreenSettings extends SettingsPreferenceFragment implements On
     private static final String CENTER_LOCKSCREEN = "center_lockscreen";
     private static final String LOCKSCREEN_ALWAYS_BATTERY = "lockscreen_always_battery";
     private static final String CUSTOM_CARRIER_LABEL = "custom_carrier_label";
+    private static final String LOCKSCREEN_TEXT = "lockscreen_text";
     private ListPreference mLockscreenTarget;
     private CheckBoxPreference mCenteredLockscreen;
     private CheckBoxPreference mAlwaysShowBattInfo;
+    private CheckBoxPreference mLockSMS;
     private Preference mCustomLabel;
     private String mCustomLabelText = null;
 
@@ -40,6 +42,10 @@ public class LockscreenSettings extends SettingsPreferenceFragment implements On
                 Settings.System.LOCKSCREEN_TARGETS, 0);
         mLockscreenTarget.setValueIndex(lockscreenValue);
         mLockscreenTarget.setOnPreferenceChangeListener(this);
+
+mLockSMS = (CheckBoxPreference) prefSet.findPreference(LOCKSCREEN_TEXT);
+        mLockSMS.setChecked(Settings.System.getInt(getContentResolver(),
+                Settings.System.LOCKSCREEN_SHOW_TEXTS, 0) == 1);
 
         mCenteredLockscreen = (CheckBoxPreference) prefSet.findPreference(CENTER_LOCKSCREEN);
         mCenteredLockscreen.setChecked(Settings.System.getInt(getContentResolver(),
@@ -60,6 +66,11 @@ public class LockscreenSettings extends SettingsPreferenceFragment implements On
             Settings.System.putInt(getContentResolver(),
                 Settings.System.CENTER_LOCKSCREEN, value ? 1 : 0);
             return true;
+	} else if (preference == mLockSMS) {
+	    value = mLockSMS.isChecked();
+	    Settings.System.putInt(getContentResolver(),
+		Settings.System.LOCKSCREEN_SHOW_TEXTS, value ? 1 : 0);
+	    return true;
         } else if (preference == mAlwaysShowBattInfo) {
             value = mAlwaysShowBattInfo.isChecked();
             Settings.System.putInt(getContentResolver(),
