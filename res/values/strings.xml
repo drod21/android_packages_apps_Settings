@@ -3812,7 +3812,9 @@ found in the list of installed apps.</string>
     <string name="hex_hint">#FF000000</string>
     <string name="set">Set</string>
     <string name="ics_color">ICS</string>
-    <string name="battery_percent_title">Show battery percentages</string>
+    <string name="battery_percent_title">Battery percentages</string>
+    <string name="battery_percent_summary_on">Battery percentage will be shown in icon</string>
+    <string name="battery_percent_summary_off">Stock battery icon will be used</string>  
     <string name="clock_style_title">Clock style</string>
     <string name="am_pm_style_title">AM PM style</string>
 
@@ -3826,11 +3828,13 @@ found in the list of installed apps.</string>
     <string name="nav_buttons_slot_five_title">Slot five</string>
     <string name="other_navigation_bar_settings">Other settings</string>
     <string name="key_button_glow_title">Use fast button glow</string>
-    <string name="key_button_glow_summary">Needs reboot to take effect</string>
+    <string name="key_button_glow_summary_on">Nav button touch glow will be set to fast</string>
+    <string name="key_button_glow_summary_off">Stock nav button touch glow will be used</string>
     <string name="use_quick_dash_title">Use QuickDash</string>
     <string name="use_quick_dash_summary_on">QuickDash will be launched with long-press home</string>
     <string name="use_quick_dash_summary_off">Recent apps will be launched with long-press home</string>
     <string name="nav_button_color_title">Navigation button color</string>
+    <string name="nav_button_color_summary">Touch to select nav button color</string>
 
     <string name="cpu_settings_title">CPU settings</string>
     <string name="cpu_title">CPU settings</string>

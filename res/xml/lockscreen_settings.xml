@@ -12,7 +12,10 @@
 
         <CheckBoxPreference
             android:key="center_lockscreen"
-            android:title="@string/center_lockscreen_title" />
+            android:title="@string/center_lockscreen_title"
+            android:summaryOn="@string/center_lockscreen_summary_on"
+            android:summaryOff="@string/center_lockscreen_summary_off"
+        />
 
         <Preference
             android:key="custom_carrier_label"
