@@ -25,12 +25,14 @@ public class NavigationBarSettings extends SettingsPreferenceFragment implements
     private static final String NAV_BUTTONS_SLOT_FIVE = "nav_buttons_slot_five";
     private static final String USE_ALT_ICONS = "use_alt_icons";
     private static final String NAVIGATION_BUTTON_COLOR = "navigation_button_color";
+    private static final String KEY_BUTTON_GLOW = "key_button_glow";
     private ListPreference mSlotOne;
     private ListPreference mSlotTwo;
     private ListPreference mSlotThree;
     private ListPreference mSlotFour;
     private ListPreference mSlotFive;
     private ColorPickerPreference mNavButtonColor;
+    private CheckBoxPreference mKeyButtonGlow;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -68,6 +70,10 @@ public class NavigationBarSettings extends SettingsPreferenceFragment implements
         mSlotFive.setValueIndex(slotFiveValue);
         mSlotFive.setOnPreferenceChangeListener(this);
 
+        mKeyButtonGlow = (CheckBoxPreference) prefSet.findPreference(KEY_BUTTON_GLOW);
+        mKeyButtonGlow.setChecked(Settings.System.getInt(getContentResolver(),
+            Settings.System.KEY_BUTTON_GLOW, 0) == 1);
+
         mNavButtonColor = (ColorPickerPreference) prefSet.findPreference(NAVIGATION_BUTTON_COLOR);
         mNavButtonColor.setOnPreferenceChangeListener(this);
     }
@@ -83,6 +89,11 @@ public class NavigationBarSettings extends SettingsPreferenceFragment implements
             value = mShowSearchButton.isChecked();
             Settings.System.putInt(getContentResolver(),
                 Settings.System.SHOW_SEARCH_BUTTON, value ? 1 : 0);
+            return true;
+        } else if (preference == mKeyButtonGlow) {
+            value = mKeyButtonGlow.isChecked();
+            Settings.System.putInt(getContentResolver(),
+                Settings.System.KEY_BUTTON_GLOW, value ? 1 : 0);
             return true;
         }
         return false;

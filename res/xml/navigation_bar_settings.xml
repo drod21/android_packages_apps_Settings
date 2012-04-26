@@ -38,6 +38,12 @@
     </PreferenceCategory>
     <PreferenceCategory android:key="nav_buttons_other_settings"
             android:title="@string/other_navigation_bar_settings">
+
+        <CheckBoxPreference
+            android:key="key_button_glow"
+            android:title="@string/key_button_glow_title" >
+        </CheckBoxPreference>
+
         <net.margaritov.preference.colorpicker.ColorPickerPreference
             android:key="navigation_button_color"
             android:title="@string/nav_button_color_title"
