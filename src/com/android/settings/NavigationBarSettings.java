@@ -14,18 +14,12 @@ import android.provider.Settings.SettingNotFoundException;
 
 public class NavigationBarSettings extends SettingsPreferenceFragment implements OnPreferenceChangeListener {
 
-    private static final String SHOW_MENU_BUTTON = "show_menu_button";
-    private static final String SHOW_SEARCH_BUTTON = "show_search_button";
-    private CheckBoxPreference mShowMenuButton;
-    private CheckBoxPreference mShowSearchButton;
     private static final String NAV_BUTTONS_SLOT_ONE = "nav_buttons_slot_one";
     private static final String NAV_BUTTONS_SLOT_TWO = "nav_buttons_slot_two";
     private static final String NAV_BUTTONS_SLOT_THREE = "nav_buttons_slot_three";
     private static final String NAV_BUTTONS_SLOT_FOUR = "nav_buttons_slot_four";
     private static final String NAV_BUTTONS_SLOT_FIVE = "nav_buttons_slot_five";
-    private static final String USE_ALT_ICONS = "use_alt_icons";
     private static final String NAVIGATION_BUTTON_COLOR = "navigation_button_color";
-    private static final String KEY_BUTTON_GLOW = "key_button_glow";
     private static final String USE_QUICK_DASH = "use_quick_dash";
     private ListPreference mSlotOne;
     private ListPreference mSlotTwo;
@@ -33,7 +27,6 @@ public class NavigationBarSettings extends SettingsPreferenceFragment implements
     private ListPreference mSlotFour;
     private ListPreference mSlotFive;
     private ColorPickerPreference mNavButtonColor;
-    private CheckBoxPreference mKeyButtonGlow;
     private CheckBoxPreference mUseQuickDash;
 
     @Override
@@ -72,10 +65,6 @@ public class NavigationBarSettings extends SettingsPreferenceFragment implements
         mSlotFive.setValueIndex(slotFiveValue);
         mSlotFive.setOnPreferenceChangeListener(this);
 
-        mKeyButtonGlow = (CheckBoxPreference) prefSet.findPreference(KEY_BUTTON_GLOW);
-        mKeyButtonGlow.setChecked(Settings.System.getInt(getContentResolver(),
-            Settings.System.KEY_BUTTON_GLOW, 0) == 1);
-
         mUseQuickDash = (CheckBoxPreference) prefSet.findPreference(USE_QUICK_DASH);
         mUseQuickDash.setChecked(Settings.System.getInt(getContentResolver(),
             Settings.System.USE_QUICK_DASH, 1) == 1);
@@ -86,22 +75,7 @@ public class NavigationBarSettings extends SettingsPreferenceFragment implements
 
     public boolean onPreferenceTreeClick(PreferenceScreen preferenceScreen, Preference preference) {
         boolean value;
-        if (preference == mShowMenuButton) {
-            value = mShowMenuButton.isChecked();
-            Settings.System.putInt(getContentResolver(),
-                Settings.System.SHOW_MENU_BUTTON, value ? 1 : 0);
-            return true;
-        } else if (preference == mShowSearchButton) {
-            value = mShowSearchButton.isChecked();
-            Settings.System.putInt(getContentResolver(),
-                Settings.System.SHOW_SEARCH_BUTTON, value ? 1 : 0);
-            return true;
-        } else if (preference == mKeyButtonGlow) {
-            value = mKeyButtonGlow.isChecked();
-            Settings.System.putInt(getContentResolver(),
-                Settings.System.KEY_BUTTON_GLOW, value ? 1 : 0);
-            return true;
-        } else if (preference == mUseQuickDash) {
+	if (preference == mUseQuickDash) {
             value = mUseQuickDash.isChecked();
             Settings.System.putInt(getContentResolver(),
                 Settings.System.USE_QUICK_DASH, value ? 1 : 0);
