@@ -5,37 +5,14 @@
     android:key="rootz_settings"
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
 
-    <PreferenceCategory
-            android:key="launcher_settings"
-            android:title="@string/launcher_settings_title"/>
-
-        <Preference
-            android:key="launcher_settings_coming_soon"
-            android:title="@string/coming_soon_title" />
-
-    <PreferenceCategory
-            android:key="lockscreen_settings"
-            android:title="@string/lockscreen_settings_title"/>
-
-        <Preference
-            android:key="lockscreen_settings_coming_soon"
-            android:title="@string/coming_soon_title" />
-
-    <PreferenceCategory
-            android:key="navigationbar_settings"
-            android:title="@string/navigationbar_settings_title"/>
-
-        <Preference
-            android:key="navigation_bar_settings_coming_soon"
-            android:title="@string/coming_soon_title" />
-
-    <PreferenceCategory
-            android:key="statusbar_settings"
-            android:title="@string/statusbar_settings_title"/>
-
-        <Preference
-            android:key="status_bar_settings_coming_soon"
-            android:title="@string/coming_soon_title" />
+        <PreferenceScreen
+            android:key="launcher_prefs"
+            android:title="@string/launcher_prefs_title" >
+            <intent
+                android:action="android.intent.action.MAIN"
+                android:targetPackage="com.android.launcher"
+                android:targetClass="com.android.launcher2.SettingsActivity" />
+        </PreferenceScreen>
 
 </PreferenceScreen>
             
