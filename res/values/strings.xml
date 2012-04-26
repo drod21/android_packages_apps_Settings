@@ -3787,11 +3787,8 @@ found in the list of installed apps.</string>
     "system_update_settings_list_item_title" in this project. [CHAR LIMIT=25] -->
     <string name="additional_system_update_settings_list_item_title">Additional system updates</string>
 
-    <!-- RootzBoat Settings title -->
-    <string name="rootz_settings_title">RootzBoat</string>
-
     <!-- Category names for RootzBoat Settings -->
-    <string name="launcher_prefs_title">Launcher</string>
+    <string name="performance_prefs_title">CPU Settings</string>
     <string name="status_bar_prefs_title">Status Bar</string>
     <string name="navigation_bar_prefs_title">Navigation Bar</string>
     <string name="notification_pulse_settings">Pulse Notifications</string>
@@ -3807,4 +3804,27 @@ found in the list of installed apps.</string>
 
     <!-- Strings for RootzBoat settings -->
     <string name="battery_percent_title">Show battery percentages</string>
+    <string name="persist_menu_title">Always show menu button</string>
+    <string name="show_search_button_title">Show search button in nav bar</string>
+
+    <string name="cpu_settings_title">CPU settings</string>
+    <string name="cpu_title">CPU settings</string>
+    <string name="advanced_settings_voltage">Advanced settings</string>
+    <string name="cpu_summary">Governor and clock settings</string>
+    <string name="cpu_governors_title">Available governors</string>
+    <string name="cpu_governors_summary">List of available governors\nCurrently selected: %S</string>
+    <string name="cpu_min_freq_title">Min CPU frequency</string>
+    <string name="cpu_min_freq_summary">Minimum CPU frequency\nCurrently: %s</string>
+    <string name="cpu_max_freq_title">Max CPU frequency</string>
+    <string name="cpu_max_freq_summary">Maximum CPU frequency\nCurrently: %s</string>
+    <string name="cpu_set_on_boot">Set on boot</string>
+    <string name="cpu_set_on_boot_summary">Restore CPU settings on boot</string>
+
+    <string name="voltage_settings">Voltage settings</string>
+    <string name="voltage_settings_summary">Fine tune kernel voltage settings</string>
+    <string name="error_values">Error getting values</string>
+    <string name="apply_values">Apply values</string>
+    <string name="freq">Frequency</string>
+    <string name="current">mV current</string>
+    <string name="saved">mV saved</string>
 </resources>

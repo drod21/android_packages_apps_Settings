@@ -1317,23 +1317,10 @@
             </intent-filter>
         </activity>
 
-        <activity android:name="RootzSettings"
-            android:theme="@android:style/Theme.Translucent.NoTitleBar"
-            android:configChanges="orientation|keyboardHidden|screenSize"
-            android:label="@string/rootz_settings_title">
+        <activity android:name="com.android.settings.VoltageControlSettings"
+            android:label="@string/voltage_settings">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
-        </activity>
-
-        <activity android:name="StatusBarSettings"
-            android:theme="@android:style/Theme.Translucent.NoTitleBar"
-            android:configChanges="orientation|keyboardHidden|screenSize"
-            android:label="@string/status_bar_prefs_title">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
 
