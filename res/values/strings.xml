@@ -33,8 +33,8 @@
     <string name="header_category_personal">PERSONAL</string>
     <!-- Settings main menu category heading. System (Updates, data, accessibility, about phone). [CHAR LIMIT=40] -->
     <string name="header_category_system">SYSTEM</string>
-    <!-- Advanced Settings menu for RootzBoat -->
-    <string name="header_category_advanced_settings">CAPTAIN\'S QUARTERS</string>
+    <!-- Advanced Settings menu for rubiX -->
+    <string name="header_category_advanced_settings">rubiX Settings</string>
 
     <!-- Phone info -->
     <!-- Phone Info screen. Button label to turn on the radio . Only shown in diagnostic screen, so precise translation is not needed. -->
